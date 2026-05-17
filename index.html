@@ -17,6 +17,7 @@ input,select{font-family:inherit}
 a{color:inherit;text-decoration:none}
 :root{--acc:#f5c842;--bg:#0a0a0a;--card:#161616;--bdr:#242424;--mut:rgba(255,255,255,.38);--navh:60px;--safe:env(safe-area-inset-bottom,0px)}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:99px}
+
 @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pop{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
@@ -24,7 +25,7 @@ a{color:inherit;text-decoration:none}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* ── HEADER ── */
-#hdr{position:fixed;inset:0 0 auto;z-index:90;height:var(--navh);background:rgba(10,10,10,.9);border-bottom:1px solid rgba(255,255,255,.07);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;align-items:center;padding:0 18px;gap:10px}
+#hdr{position:fixed;inset:0 0 auto;z-index:90;height:var(--navh);background:rgba(10,10,10,.88);border-bottom:1px solid rgba(255,255,255,.07);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;align-items:center;padding:0 18px;gap:10px}
 .logo{display:flex;align-items:center;gap:8px;flex-shrink:0}
 #lgem{width:30px;height:30px;border-radius:8px;background:var(--acc);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:14px;color:#000;transition:background .35s}
 .lname{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#fff}
@@ -34,37 +35,40 @@ a{color:inherit;text-decoration:none}
 .np.on{color:#000;background:var(--acc)}
 .fb{background:rgba(0,0,0,.2);color:inherit;font-size:10px;font-weight:700;padding:1px 4px;border-radius:99px;display:none}
 .fb.v{display:inline}
+
+/* ── HEADER RIGHT CONTROLS ── */
 .hright{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
 #dsw{position:relative}
-#dsw input{width:140px;padding:7px 10px 7px 28px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:#fff;font-size:12px;outline:none;caret-color:var(--acc);transition:width .3s,border-color .2s}
+#dsw input{width:145px;padding:7px 10px 7px 28px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:#fff;font-size:12px;outline:none;caret-color:var(--acc);transition:width .3s,border-color .2s}
 #dsw input::placeholder{color:var(--mut)}
-#dsw input:focus{width:180px;border-color:rgba(255,255,255,.18)}
+#dsw input:focus{width:185px;border-color:rgba(255,255,255,.18)}
 .si{position:absolute;left:8px;top:50%;transform:translateY(-50%);width:12px;height:12px;opacity:.35;pointer-events:none;color:#fff}
 
 /* ── LANGUAGE SWITCHER ── */
-#lang-sw{display:flex;align-items:center;background:rgba(255,255,255,.06);border-radius:10px;border:1px solid rgba(255,255,255,.1);overflow:hidden;flex-shrink:0;height:32px}
-.lb{padding:0 10px;font-size:12px;font-weight:600;color:var(--mut);height:100%;display:flex;align-items:center;gap:4px;transition:all .2s}
-.lb:hover{color:#fff}
-.lb.on{background:var(--acc);color:#000}
-.lsep{width:1px;background:rgba(255,255,255,.1);height:18px}
+#lang-sw{display:flex;align-items:center;background:rgba(255,255,255,.07);border-radius:10px;border:1px solid rgba(255,255,255,.1);overflow:hidden;flex-shrink:0}
+.lang-btn{padding:5px 10px;font-size:12px;font-weight:600;color:var(--mut);transition:all .2s;letter-spacing:.02em}
+.lang-btn:hover{color:#fff}
+.lang-btn.on{background:var(--acc);color:#000}
+.lang-sep{width:1px;background:rgba(255,255,255,.1);height:18px}
+
 #ham{display:none;width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.07);align-items:center;justify-content:center;color:#fff;flex-shrink:0}
 
 /* ── MOBILE DROPDOWN ── */
 #mdd{display:none;position:fixed;top:var(--navh);inset-inline:0;z-index:89;background:rgba(8,8,8,.97);border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:10px 14px 14px;flex-direction:column;gap:3px;animation:fadeUp .2s ease}
 #mdd.open{display:flex}
-.mlangrow{display:flex;align-items:center;justify-content:space-between;padding:8px 12px 12px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:4px}
-.mlangrow span{font-size:12px;color:var(--mut);font-weight:500}
-#mlang-sw{display:flex;background:rgba(255,255,255,.06);border-radius:9px;border:1px solid rgba(255,255,255,.1);overflow:hidden;height:32px}
-.mlb{padding:0 12px;font-size:13px;font-weight:600;color:var(--mut);height:100%;display:flex;align-items:center;gap:4px;transition:all .2s}
-.mlb.on{background:var(--acc);color:#000}
-.mlb:hover:not(.on){color:#fff}
-.mlsep{width:1px;background:rgba(255,255,255,.1);height:18px}
 .msr{position:relative;margin-bottom:5px}
 .msr input{width:100%;padding:10px 12px 10px 36px;border-radius:11px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.06);color:#fff;font-size:14px;outline:none;caret-color:var(--acc)}
 .msr input::placeholder{color:var(--mut)}
 .mnb{display:flex;align-items:center;gap:9px;padding:10px 12px;border-radius:11px;font-size:14px;font-weight:500;color:rgba(255,255,255,.6);transition:all .15s;width:100%;text-align:left}
 .mnb:hover{background:rgba(255,255,255,.06);color:#fff}
 .mnb.on{background:var(--acc);color:#000}
+/* Mobile lang switcher inside menu */
+.mob-lang-row{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:4px}
+.mob-lang-row span{font-size:12px;color:var(--mut);font-weight:500}
+#mob-lang-sw{display:flex;align-items:center;background:rgba(255,255,255,.07);border-radius:9px;border:1px solid rgba(255,255,255,.1);overflow:hidden;margin-left:auto}
+.mob-lang-btn{padding:5px 12px;font-size:13px;font-weight:600;color:var(--mut);transition:all .2s}
+.mob-lang-btn.on{background:var(--acc);color:#000}
+.mob-lang-sep{width:1px;background:rgba(255,255,255,.1);height:18px}
 
 /* ── BOTTOM NAV ── */
 #bnav{display:none;position:fixed;bottom:0;inset-inline:0;z-index:90;background:rgba(10,10,10,.96);border-top:1px solid rgba(255,255,255,.07);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
@@ -107,7 +111,7 @@ a{color:inherit;text-decoration:none}
 .ski{aspect-ratio:4/3;background:linear-gradient(90deg,rgba(255,255,255,.04) 25%,rgba(255,255,255,.08) 50%,rgba(255,255,255,.04) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite}
 .skb{padding:8px 10px;display:flex;flex-direction:column;gap:5px}
 .skl{height:11px;border-radius:5px;background:linear-gradient(90deg,rgba(255,255,255,.04) 25%,rgba(255,255,255,.08) 50%,rgba(255,255,255,.04) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite}
-.skl.w3{width:70%}
+.skl.w3{width:70%}.skl.w2{width:45%}
 
 /* ── HEART ── */
 .hbtn{position:absolute;top:7px;right:7px;z-index:5;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;transition:transform .18s}
@@ -129,7 +133,7 @@ a{color:inherit;text-decoration:none}
 .feat .hbtn svg{width:15px;height:15px}
 .feat-sk{border-radius:18px;height:260px;margin-bottom:8px;background:linear-gradient(90deg,rgba(255,255,255,.04) 25%,rgba(255,255,255,.08) 50%,rgba(255,255,255,.04) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite}
 
-/* ── WORLD ── */
+/* ── WORLD SELECT ── */
 .whead{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px;margin-bottom:20px}
 .selw{position:relative}
 .asel{-webkit-appearance:none;appearance:none;padding:9px 32px 9px 12px;border-radius:11px;border:1px solid var(--bdr);background:var(--card);color:#e5e5e5;font-size:13px;font-weight:500;cursor:pointer;outline:none}
@@ -178,12 +182,13 @@ a{color:inherit;text-decoration:none}
 .mskw{padding:18px;display:flex;flex-direction:column;gap:10px}
 .sk{background:linear-gradient(90deg,rgba(255,255,255,.04) 25%,rgba(255,255,255,.08) 50%,rgba(255,255,255,.04) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:9px}
 
-/* ── TRANSLATION BADGE ── */
-.tpill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:500;margin-bottom:10px}
-.tpill.tload{color:#f5c842;background:rgba(245,200,66,.08);border:1px solid rgba(245,200,66,.2)}
-.tpill.tdone{color:#4ade80;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2)}
-.tpill.terr{color:rgba(255,180,100,.8);background:rgba(255,150,50,.06);border:1px solid rgba(255,150,50,.15)}
-.tspin{width:10px;height:10px;border:1.5px solid rgba(245,200,66,.25);border-top-color:#f5c842;border-radius:50%;animation:spin .75s linear infinite;flex-shrink:0}
+/* ── TRANSLATION INDICATOR ── */
+.trad-pill{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border-radius:99px;font-size:10px;font-weight:600;color:rgba(255,255,255,.5);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);margin-bottom:10px}
+.trad-pill.loading{color:var(--acc);border-color:rgba(var(--acc),.3)}
+.trad-pill.done{color:#4ade80;border-color:rgba(74,222,128,.3)}
+.trad-pill.err{color:rgba(255,150,150,.7);border-color:rgba(255,100,100,.2)}
+.trad-spinner{width:10px;height:10px;border:1.5px solid rgba(var(--acc),.3);border-top-color:var(--acc);border-radius:50%;animation:spin .7s linear infinite}
+.trad-flag{font-size:11px}
 
 /* ── RESPONSIVE ── */
 @media(max-width:800px){#dnav{display:none}#dsw{display:none}#ham{display:flex}#bnav{display:block}#wrap{padding-bottom:calc(54px + var(--safe) + 24px)}}
@@ -203,13 +208,844 @@ a{color:inherit;text-decoration:none}
     <span class="lname">RecipeBook</span>
   </div>
   <nav id="dnav">
-    <button class="np on" data-t="home"   onclick="go('home')">  🏠 <span data-ui="nav_home">Accueil</span></button>
-    <button class="np"    data-t="pastry" onclick="go('pastry')">🍰 <span data-ui="nav_pastry">Pâtisseries</span></button>
-    <button class="np"    data-t="meat"   onclick="go('meat')">  🥩 <span data-ui="nav_meat">Plats Résistants</span></button>
-    <button class="np"    data-t="veggie" onclick="go('veggie')">🥗 <span data-ui="nav_veggie">Healthy &amp; Veggie</span></button>
-    <button class="np"    data-t="world"  onclick="go('world')"> 🌍 <span data-ui="nav_world">Cuisine du Monde</span></button>
-    <button class="np"    data-t="fav"    onclick="go('fav')">   ❤️ <span data-ui="nav_fav">Favoris</span> <span class="fb" id="db">0</span></button>
+    <button class="np on" data-t="home"   onclick="go('home')">  🏠 <span class="nt" data-k="nav_home">Accueil</span></button>
+    <button class="np"    data-t="pastry" onclick="go('pastry')">🍰 <span class="nt" data-k="nav_pastry">Pâtisseries</span></button>
+    <button class="np"    data-t="meat"   onclick="go('meat')">  🥩 <span class="nt" data-k="nav_meat">Plats Résistants</span></button>
+    <button class="np"    data-t="veggie" onclick="go('veggie')">🥗 <span class="nt" data-k="nav_veggie">Healthy &amp; Veggie</span></button>
+    <button class="np"    data-t="world"  onclick="go('world')"> 🌍 <span class="nt" data-k="nav_world">Cuisine du Monde</span></button>
+    <button class="np"    data-t="fav"    onclick="go('fav')">   ❤️ <span class="nt" data-k="nav_fav">Favoris</span> <span class="fb" id="db">0</span></button>
   </nav>
+  <div class="hright">
+    <div id="dsw">
+      <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="ds" placeholder="Rechercher…" oninput="onSrch(this.value)" onfocus="go('search')" autocomplete="off"/>
+    </div>
+    <!-- Language switcher -->
+    <div id="lang-sw">
+      <button class="lang-btn on" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+      <div class="lang-sep"></div>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+    </div>
+    <button id="ham" onclick="togM()" aria-label="Menu">
+      <svg id="hico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mdd">
+  <div class="mob-lang-row">
+    <span>Langue / Language</span>
+    <div id="mob-lang-sw">
+      <button class="mob-lang-btn on" id="mob-btn-fr" onclick="setLang('fr');cM()">🇫🇷 FR</button>
+      <div class="mob-lang-sep"></div>
+      <button class="mob-lang-btn" id="mob-btn-en" onclick="setLang('en');cM()">🇬🇧 EN</button>
+    </div>
+  </div>
+  <div class="msr">
+    <svg class="si" style="left:11px;width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input type="search" id="ms" placeholder="Rechercher…" oninput="onSrch(this.value)" onfocus="go('search');cM()" autocomplete="off"/>
+  </div>
+  <button class="mnb on" data-mt="home"   onclick="go('home');  cM()">🏠 <span class="nt" data-k="nav_home">Accueil</span></button>
+  <button class="mnb"   data-mt="pastry" onclick="go('pastry');cM()">🍰 <span class="nt" data-k="nav_pastry">Pâtisseries</span></button>
+  <button class="mnb"   data-mt="meat"   onclick="go('meat');  cM()">🥩 <span class="nt" data-k="nav_meat">Plats Résistants</span></button>
+  <button class="mnb"   data-mt="veggie" onclick="go('veggie');cM()">🥗 <span class="nt" data-k="nav_veggie">Healthy &amp; Veggie</span></button>
+  <button class="mnb"   data-mt="world"  onclick="go('world'); cM()">🌍 <span class="nt" data-k="nav_world">Cuisine du Monde</span></button>
+  <button class="mnb"   data-mt="fav"    onclick="go('fav');   cM()">❤️ <span class="nt" data-k="nav_fav">Favoris</span></button>
+  <button class="mnb"   data-mt="search" onclick="go('search');cM()">🔍 <span class="nt" data-k="nav_search">Recherche</span></button>
+</div>
+
+<!-- PAGES -->
+<div id="wrap">
+  <section class="page on" id="page-home">
+    <div class="slabel" id="lbl-featured">✨ Recette à la une</div>
+    <div id="fw"></div>
+    <div id="hr"></div>
+  </section>
+  <section class="page" id="page-pastry">
+    <div class="phead"><h1>🍰 <span class="nt" data-k="nav_pastry">Pâtisseries</span></h1><p class="psub" id="pcount"></p></div>
+    <div id="pg" class="bento"></div>
+  </section>
+  <section class="page" id="page-meat">
+    <div class="phead"><h1>🥩 <span class="nt" data-k="nav_meat">Plats Résistants</span></h1><p class="psub" id="mcount"></p></div>
+    <div id="mg" class="bento"></div>
+  </section>
+  <section class="page" id="page-veggie">
+    <div class="phead"><h1>🥗 <span class="nt" data-k="nav_veggie">Healthy &amp; Veggie</span></h1><p class="psub" id="vcount"></p></div>
+    <div id="vg" class="bento"></div>
+  </section>
+  <section class="page" id="page-world">
+    <div class="whead">
+      <div class="phead" style="margin:0"><h1>🌍 <span class="nt" data-k="nav_world">Cuisine du Monde</span></h1><p class="psub" id="wcount"></p></div>
+      <div class="selw">
+        <select class="asel" id="asel" onchange="loadArea(this.value)">
+          <option value="French">🇫🇷 Française</option>
+          <option value="Italian">🇮🇹 Italienne</option>
+          <option value="Japanese">🇯🇵 Japonaise</option>
+          <option value="Canadian">🇨🇦 Canadienne</option>
+          <option value="Mexican">🇲🇽 Mexicaine</option>
+          <option value="Indian">🇮🇳 Indienne</option>
+          <option value="Chinese">🇨🇳 Chinoise</option>
+          <option value="Greek">🇬🇷 Grecque</option>
+        </select>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div id="wg" class="bento"></div>
+  </section>
+  <section class="page" id="page-fav">
+    <div class="phead"><h1>❤️ <span class="nt" data-k="nav_fav">Favoris</span></h1><p class="psub" id="fcount"></p></div>
+    <div id="fvw"></div>
+  </section>
+  <section class="page" id="page-search">
+    <div class="phead"><h1>🔍 <span class="nt" data-k="nav_search">Recherche</span></h1></div>
+    <div class="sfull">
+      <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="search" id="spi" placeholder="Ex: pasta, chicken, sushi…" oninput="onSrch(this.value)" autocomplete="off"/>
+    </div>
+    <div id="sg" class="bento"></div>
+    <div id="se" class="empty" style="display:none"><span class="eico">😕</span><p id="sem">Aucun résultat.</p></div>
+  </section>
+</div>
+
+<!-- BOTTOM NAV -->
+<nav id="bnav">
+  <div class="bni">
+    <button class="bnt on" data-bt="home"   onclick="go('home')">  <span class="bi">🏠</span><span class="nt" data-k="bnav_home">Accueil</span></button>
+    <button class="bnt"    data-bt="pastry" onclick="go('pastry')"><span class="bi">🍰</span><span class="nt" data-k="bnav_pastry">Pâtisseries</span></button>
+    <button class="bnt"    data-bt="veggie" onclick="go('veggie')"><span class="bi">🥗</span><span class="nt" data-k="bnav_veggie">Veggie</span></button>
+    <button class="bnt"    data-bt="world"  onclick="go('world')"> <span class="bi">🌍</span><span class="nt" data-k="bnav_world">Monde</span></button>
+    <button class="bnt"    data-bt="fav"    onclick="go('fav')">   <span class="bi">❤️</span><span class="nt" data-k="nav_fav">Favoris</span><span class="bntb" id="mb2">0</span></button>
+  </div>
+</nav>
+
+<!-- MODAL -->
+<div id="mbk" onclick="mBd(event)">
+  <div class="mov"></div>
+  <div class="mbox" onclick="event.stopPropagation()"><div id="mi"></div></div>
+</div>
+
+<script>
+'use strict';
+
+/* ═══════════════════════════════════════════════════════════════
+   TRANSLATIONS — static UI strings
+═══════════════════════════════════════════════════════════════ */
+const UI = {
+  fr: {
+    nav_home:'Accueil', nav_pastry:'Pâtisseries', nav_meat:'Plats Résistants',
+    nav_veggie:'Healthy & Veggie', nav_world:'Cuisine du Monde', nav_fav:'Favoris',
+    nav_search:'Recherche',
+    bnav_home:'Accueil', bnav_pastry:'Pâtisseries', bnav_veggie:'Veggie', bnav_world:'Monde',
+    lbl_featured:'✨ Recette à la une',
+    lbl_pastries:'🍰 Pâtisseries du moment', lbl_mains:'🥩 Plats incontournables', lbl_healthy:'🥗 Cuisine healthy',
+    recipes:'recettes disponibles', no_fav:'Aucun favori pour l\'instant.\nCliquez sur le ❤️ pour sauvegarder une recette.',
+    loading:'Chargement…', ingredients:'Ingrédients', instructions:'Instructions', watch_video:'Voir la recette en vidéo',
+    search_ph:'Ex: pasta, chicken, sushi…', search_label:'Rechercher…',
+    no_result:'Aucun résultat pour', saved:'recette(s) sauvegardée(s)',
+    trad_loading:'Traduction en cours…', trad_done:'Traduit en français 🇫🇷', trad_err:'Traduction indisponible',
+    trad_original:'Version originale 🇬🇧',
+  },
+  en: {
+    nav_home:'Home', nav_pastry:'Pastries', nav_meat:'Hearty Dishes',
+    nav_veggie:'Healthy & Veggie', nav_world:'World Cuisine', nav_fav:'Favourites',
+    nav_search:'Search',
+    bnav_home:'Home', bnav_pastry:'Pastries', bnav_veggie:'Veggie', bnav_world:'World',
+    lbl_featured:'✨ Featured Recipe',
+    lbl_pastries:'🍰 Pastries of the moment', lbl_mains:'🥩 Must-try Dishes', lbl_healthy:'🥗 Healthy Cooking',
+    recipes:'recipes available', no_fav:'No favourites yet.\nClick the ❤️ on any recipe to save it.',
+    loading:'Loading…', ingredients:'Ingredients', instructions:'Instructions', watch_video:'Watch the recipe video',
+    search_ph:'e.g. pasta, chicken, sushi…', search_label:'Search…',
+    no_result:'No results for', saved:'recipe(s) saved',
+    trad_loading:'Translating…', trad_done:'Translated to French 🇫🇷', trad_err:'Translation unavailable',
+    trad_original:'Original version 🇬🇧',
+  }
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   THEMES
+═══════════════════════════════════════════════════════════════ */
+const TH={
+  home:  {acc:'#f5c842',bg:'#0a0a0a',card:'#161616',bdr:'#242424'},
+  pastry:{acc:'#f472b6',bg:'#160b10',card:'#200f1a',bdr:'#3d1a2e'},
+  meat:  {acc:'#fb923c',bg:'#110a00',card:'#1a1100',bdr:'#3a2600'},
+  veggie:{acc:'#4ade80',bg:'#030f07',card:'#07180c',bdr:'#133620'},
+  world: {acc:'#818cf8',bg:'#04071a',card:'#0a0e28',bdr:'#1a2050'},
+  fav:   {acc:'#e879f9',bg:'#11070f',card:'#1c0c1a',bdr:'#3d1040'},
+  search:{acc:'#38bdf8',bg:'#03080f',card:'#0a1020',bdr:'#163040'},
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════════════════════ */
+let cur='home', loaded={}, favs=[], favM={}, sT=null;
+let lang='fr'; // current language
+const tradCache={}; // cache translations by mealId
+try{favs=JSON.parse(localStorage.getItem('rb4')||'[]')}catch(e){}
+try{const sl=localStorage.getItem('rb4-lang');if(sl==='en'||sl==='fr')lang=sl}catch(e){}
+
+/* ═══════════════════════════════════════════════════════════════
+   LANGUAGE
+═══════════════════════════════════════════════════════════════ */
+function t(k){return UI[lang][k]||UI.fr[k]||k}
+
+function setLang(l){
+  if(lang===l) return;
+  lang=l;
+  try{localStorage.setItem('rb4-lang',l)}catch(e){}
+  applyLangUI();
+}
+
+function applyLangUI(){
+  // Update all static translated spans
+  document.querySelectorAll('.nt[data-k]').forEach(el=>{
+    const k=el.dataset.k;
+    el.textContent=t(k);
+  });
+  // Placeholders
+  ['ds','ms','spi'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.placeholder = id==='spi'||id==='ms' ? t('search_ph') : t('search_label');
+  });
+  // Featured label
+  const fl=document.getElementById('lbl-featured');
+  if(fl) fl.textContent=t('lbl_featured');
+  // Lang buttons
+  document.getElementById('btn-fr').classList.toggle('on',lang==='fr');
+  document.getElementById('btn-en').classList.toggle('on',lang==='en');
+  document.getElementById('mob-btn-fr').classList.toggle('on',lang==='fr');
+  document.getElementById('mob-btn-en').classList.toggle('on',lang==='en');
+  // Update home row labels
+  const hd=document.getElementById('hlbl-d'),hb=document.getElementById('hlbl-b'),hv=document.getElementById('hlbl-v');
+  if(hd) hd.textContent=t('lbl_pastries');
+  if(hb) hb.textContent=t('lbl_mains');
+  if(hv) hv.textContent=t('lbl_healthy');
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   THEME
+═══════════════════════════════════════════════════════════════ */
+function setTH(tab){
+  const h=TH[tab]||TH.home,r=document.documentElement.style;
+  r.setProperty('--acc',h.acc);r.setProperty('--bg',h.bg);
+  r.setProperty('--card',h.card);r.setProperty('--bdr',h.bdr);
+  document.body.style.background=h.bg;
+  document.getElementById('lgem').style.background=h.acc;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════════════════════════════ */
+function go(tab){
+  cur=tab; cM();
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
+  const pg=document.getElementById('page-'+tab); if(pg)pg.classList.add('on');
+  document.querySelectorAll('.np[data-t]').forEach(b=>b.classList.toggle('on',b.dataset.t===tab));
+  document.querySelectorAll('.mnb[data-mt]').forEach(b=>b.classList.toggle('on',b.dataset.mt===tab));
+  document.querySelectorAll('.bnt[data-bt]').forEach(b=>b.classList.toggle('on',b.dataset.bt===tab));
+  setTH(tab);
+  if(!loaded[tab]){loaded[tab]=true;loadTab(tab);}
+  if(tab==='fav') renderFavs();
+  if(tab==='search') setTimeout(()=>document.getElementById('spi').focus(),80);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function loadTab(t){
+  if(t==='home')   loadHome();
+  if(t==='pastry') loadCat(['Dessert'],'pg','pcount');
+  if(t==='meat')   loadCat(['Beef','Chicken','Seafood'],'mg','mcount');
+  if(t==='veggie') loadCat(['Vegetarian','Vegan'],'vg','vcount');
+  if(t==='world')  loadArea('French');
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE MENU
+═══════════════════════════════════════════════════════════════ */
+function togM(){
+  const d=document.getElementById('mdd'),ic=document.getElementById('hico');
+  const o=d.classList.toggle('open');
+  ic.innerHTML=o?'<path d="M18 6L6 18M6 6l12 12"/>':
+    '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
+}
+function cM(){
+  document.getElementById('mdd').classList.remove('open');
+  document.getElementById('hico').innerHTML='<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   API — CORS-SAFE
+═══════════════════════════════════════════════════════════════ */
+const MDB='https://www.themealdb.com/api/json/v1/1';
+async function apiFetch(path){
+  try{const r=await fetch(MDB+path,{mode:'cors'});if(r.ok){const d=await r.json();if(d&&d.meals!==undefined)return d;}}catch(e){}
+  try{
+    const r2=await fetch('https://corsproxy.io/?'+encodeURIComponent(MDB+path));
+    if(r2.ok){const d2=await r2.json();if(d2&&d2.contents)return JSON.parse(d2.contents);if(d2&&d2.meals!==undefined)return d2;}
+  }catch(e){}
+  return{meals:null};
+}
+const gCat  = c  => apiFetch(`/filter.php?c=${c}`).then(d=>d.meals||[]);
+const gArea = a  => apiFetch(`/filter.php?a=${a}`).then(d=>d.meals||[]);
+const gMeal = id => apiFetch(`/lookup.php?i=${id}`).then(d=>(d.meals||[])[0]||null);
+const gRnd  = () => apiFetch(`/random.php`).then(d=>(d.meals||[])[0]||null);
+const gSrch = q  => apiFetch(`/search.php?s=${encodeURIComponent(q)}`).then(d=>d.meals||[]);
+
+/* ═══════════════════════════════════════════════════════════════
+   CLAUDE TRANSLATION
+   Translates recipe name, ingredients & instructions to French.
+   Results are cached by mealId so each recipe is only translated once.
+═══════════════════════════════════════════════════════════════ */
+async function translateMeal(meal){
+  if(lang==='en') return null; // English = original, no translation needed
+  const cacheKey = meal.idMeal;
+  if(tradCache[cacheKey]) return tradCache[cacheKey];
+
+  const ings = Array.from({length:20},(_,i)=>({
+    ing:meal[`strIngredient${i+1}`], mea:meal[`strMeasure${i+1}`]
+  })).filter(x=>x.ing?.trim());
+
+  const prompt=`Tu es un traducteur culinaire expert anglais→français.
+Traduis ce JSON de recette en français. Réponds UNIQUEMENT avec le JSON valide, sans markdown, sans explication.
+
+{
+  "name": "${meal.strMeal.replace(/"/g,'\\"')}",
+  "category": "${(meal.strCategory||'').replace(/"/g,'\\"')}",
+  "instructions": ${JSON.stringify((meal.strInstructions||'').slice(0,1200))},
+  "ingredients": ${JSON.stringify(ings.map(x=>({ing:x.ing,mea:(x.mea||'').trim()})))}
+}
+
+Règles:
+- Traduis "name", "category", "instructions", et le champ "ing" de chaque ingrédient
+- Garde les quantités ("mea") exactement comme elles sont (ex: "1 cup", "2 tbsp" → ne pas changer)
+- JSON strict, double guillemets uniquement`;
+
+  try{
+    const res = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        messages:[{role:'user',content:prompt}]
+      })
+    });
+    if(!res.ok) throw new Error('API error');
+    const data = await res.json();
+    const raw = data.content?.find(b=>b.type==='text')?.text||'';
+    // Strip any markdown fences just in case
+    const clean = raw.replace(/```json|```/gi,'').trim();
+    const parsed = JSON.parse(clean);
+    tradCache[cacheKey] = parsed;
+    return parsed;
+  }catch(e){
+    return null;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SKELETONS
+═══════════════════════════════════════════════════════════════ */
+function sks(n){
+  return Array(n).fill('<div class="skc"><div class="ski"></div><div class="skb"><div class="skl"></div><div class="skl w3"></div></div></div>').join('');
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FAVORITES
+═══════════════════════════════════════════════════════════════ */
+function saveFavs(){try{localStorage.setItem('rb4',JSON.stringify(favs))}catch(e){}}
+function isFav(id){return favs.includes(String(id))}
+
+function hsvg(id){
+  const a=TH[cur]?.acc||'#f5c842',ac=isFav(id);
+  return`<svg viewBox="0 0 24 24" fill="${ac?a:'none'}" stroke="${ac?a:'rgba(255,255,255,.65)'}" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`;
+}
+function hbtn(id){
+  return`<button class="hbtn" onclick="tFav(event,'${id}')" data-hid="${id}" aria-label="Favori">${hsvg(id)}</button>`;
+}
+function tFav(e,id){
+  e.stopPropagation();
+  const sid=String(id);
+  favs=isFav(sid)?favs.filter(x=>x!==sid):[...favs,sid];
+  saveFavs(); updB();
+  const a=TH[cur]?.acc||'#f5c842',ac=isFav(sid);
+  document.querySelectorAll(`[data-hid="${sid}"]`).forEach(b=>{
+    const s=b.querySelector('svg');
+    s.setAttribute('fill',ac?a:'none');
+    s.setAttribute('stroke',ac?a:'rgba(255,255,255,.65)');
+  });
+}
+function updB(){
+  const n=favs.length,sh=n>0;
+  ['db','mb2'].forEach(id=>{const el=document.getElementById(id);if(!el)return;el.textContent=n;el.classList.toggle('v',sh)});
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CARD HTML
+═══════════════════════════════════════════════════════════════ */
+function card(m){
+  const n=m.strMeal.replace(/"/g,'&quot;');
+  return`<div class="card" onclick="openM('${m.idMeal}')">
+    <div class="cimg"><img src="${m.strMealThumb}/preview" alt="${n}" loading="lazy" onerror="this.src='${m.strMealThumb}'"/></div>
+    ${hbtn(m.idMeal)}
+    <div class="cbody"><div class="ctitle">${m.strMeal}</div></div>
+  </div>`;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HOME
+═══════════════════════════════════════════════════════════════ */
+async function loadHome(){
+  document.getElementById('fw').innerHTML='<div class="feat-sk"></div>';
+  document.getElementById('hr').innerHTML=`
+    <div class="slabel" id="hlbl-d">${t('lbl_pastries')}</div><div class="bento" id="hd">${sks(4)}</div>
+    <div class="slabel" style="margin-top:22px" id="hlbl-b">${t('lbl_mains')}</div><div class="bento" id="hb">${sks(4)}</div>
+    <div class="slabel" style="margin-top:22px" id="hlbl-v">${t('lbl_healthy')}</div><div class="bento" id="hv">${sks(4)}</div>`;
+
+  const[feat,des,bef,veg]=await Promise.all([gRnd(),gCat('Dessert'),gCat('Beef'),gCat('Vegetarian')]);
+
+  if(feat){
+    const n=feat.strMeal.replace(/"/g,'&quot;');
+    document.getElementById('fw').innerHTML=`
+      <div class="feat" onclick="openM('${feat.idMeal}')">
+        <img src="${feat.strMealThumb}" alt="${n}" onerror="this.style.opacity='.4'"/>
+        <div class="fov"></div>
+        <div class="fbody">
+          <div class="ftag">${feat.strCategory||'Recette'}</div>
+          <div class="ftitle">${feat.strMeal}</div>
+          ${feat.strArea?`<div class="farea">${feat.strArea}</div>`:''}
+        </div>
+        ${hbtn(feat.idMeal)}
+      </div>`;
+  } else {
+    document.getElementById('fw').innerHTML='<p style="color:var(--mut);font-size:13px;margin-bottom:16px">⚠️ Impossible de charger la recette vedette.</p>';
+  }
+
+  const sh=a=>a.sort(()=>Math.random()-.5);
+  document.getElementById('hd').innerHTML=sh(des).slice(0,4).map(card).join('')||'<p style="color:var(--mut);font-size:13px">Indisponible</p>';
+  document.getElementById('hb').innerHTML=sh(bef).slice(0,4).map(card).join('')||'';
+  document.getElementById('hv').innerHTML=sh(veg).slice(0,4).map(card).join('')||'';
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CATEGORY
+═══════════════════════════════════════════════════════════════ */
+async function loadCat(cats,gid,sid){
+  document.getElementById(gid).innerHTML=sks(8);
+  document.getElementById(sid).innerHTML=t('loading');
+  const r=await Promise.all(cats.map(gCat));
+  const all=[...new Map(r.flat().map(m=>[m.idMeal,m])).values()].sort(()=>Math.random()-.5);
+  document.getElementById(sid).innerHTML=`<b>${all.length}</b> ${t('recipes')}`;
+  document.getElementById(gid).innerHTML=all.length?all.map(card).join(''):'<p style="color:var(--mut);font-size:13px">Indisponible</p>';
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   WORLD
+═══════════════════════════════════════════════════════════════ */
+async function loadArea(area){
+  document.getElementById('wg').innerHTML=sks(8);
+  document.getElementById('wcount').innerHTML=t('loading');
+  const meals=await gArea(area);
+  document.getElementById('wcount').innerHTML=`<b>${meals.length}</b> ${t('recipes')} · ${area}`;
+  document.getElementById('wg').innerHTML=meals.length?meals.map(card).join(''):'<p style="color:var(--mut);font-size:13px">Indisponible</p>';
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FAVORITES
+═══════════════════════════════════════════════════════════════ */
+async function renderFavs(){
+  const n=favs.length;
+  document.getElementById('fcount').innerHTML=`<b>${n}</b> ${t('saved')}`;
+  if(!n){
+    document.getElementById('fvw').innerHTML=`<div class="empty"><span class="eico">🤍</span><p>${t('no_fav')}</p></div>`;
+    return;
+  }
+  document.getElementById('fvw').innerHTML=`<div class="bento">${sks(n)}</div>`;
+  const meals=await Promise.all(favs.map(id=>favM[id]?Promise.resolve(favM[id]):gMeal(id)));
+  const v=meals.filter(Boolean);
+  v.forEach(m=>{favM[m.idMeal]=m;});
+  document.getElementById('fvw').innerHTML=`<div class="bento">${v.map(card).join('')}</div>`;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SEARCH
+═══════════════════════════════════════════════════════════════ */
+function onSrch(val){
+  ['ds','ms','spi'].forEach(id=>{const el=document.getElementById(id);if(el&&el!==document.activeElement)el.value=val;});
+  const sg=document.getElementById('sg'),se=document.getElementById('se');
+  clearTimeout(sT);
+  if(!val.trim()){sg.innerHTML='';se.style.display='none';return;}
+  sg.innerHTML=sks(8); se.style.display='none';
+  sT=setTimeout(async()=>{
+    const meals=await gSrch(val.trim());
+    if(!meals.length){
+      sg.innerHTML='';
+      document.getElementById('sem').textContent=`${t('no_result')} « ${val} »`;
+      se.style.display='block';
+    } else {
+      se.style.display='none';
+      sg.innerHTML=meals.map(card).join('');
+    }
+  },420);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MODAL — with translation
+═══════════════════════════════════════════════════════════════ */
+async function openM(id){
+  const back=document.getElementById('mbk'),mi=document.getElementById('mi');
+  back.classList.add('open');
+  document.body.style.overflow='hidden';
+  mi.innerHTML='<div class="mskw"><div class="sk" style="height:220px;border-radius:14px"></div><div class="sk" style="height:24px;width:60%"></div><div class="sk" style="height:12px"></div><div class="sk" style="height:12px;width:80%"></div><div class="sk" style="height:12px;width:65%"></div></div>';
+
+  const m = await gMeal(id);
+  if(!m){mi.innerHTML='<p style="padding:40px;color:var(--mut);text-align:center">Erreur de chargement.</p>';return;}
+  if(isFav(id)) favM[id]=m;
+
+  const ings=Array.from({length:20},(_,i)=>({
+    ing:m[`strIngredient${i+1}`], mea:m[`strMeasure${i+1}`]
+  })).filter(x=>x.ing?.trim());
+
+  const acc=TH[cur]?.acc||'#f5c842';
+
+  // Render with original content first
+  renderModal(m, ings, acc, null, 'loading');
+
+  // If French selected, start translation
+  if(lang==='fr'){
+    updateTradPill('loading', t('trad_loading'));
+    const trad = await translateMeal(m);
+    if(trad){
+      updateTradPill('done', t('trad_done'));
+      renderModal(m, ings, acc, trad, 'done');
+    } else {
+      updateTradPill('err', t('trad_err'));
+    }
+  }
+}
+
+function renderModal(m, ings, acc, trad, tradState){
+  const mi=document.getElementById('mi');
+  if(!mi) return;
+
+  const name  = trad ? trad.name  : m.strMeal;
+  const cat   = trad ? (trad.category||m.strCategory) : m.strCategory;
+  const instr = trad ? trad.instructions : m.strInstructions;
+  const tradIngs = trad ? trad.ingredients : null;
+
+  const ingHTML = ings.map((x,i)=>{
+    const ingName = tradIngs && tradIngs[i] ? tradIngs[i].ing : x.ing;
+    const mea = (x.mea||'').trim();
+    return`<div class="ii"><span class="idot" style="background:${acc}"></span><span><span class="imea">${mea}</span>${ingName}</span></div>`;
+  }).join('');
+
+  // Translation pill
+  let pillHTML = '';
+  if(lang==='fr'){
+    if(tradState==='loading'){
+      pillHTML=`<div class="trad-pill loading" id="trad-pill"><span class="trad-spinner"></span>${t('trad_loading')}</div>`;
+    } else if(tradState==='done'){
+      pillHTML=`<div class="trad-pill done" id="trad-pill">✓ ${t('trad_done')}</div>`;
+    } else if(tradState==='err'){
+      pillHTML=`<div class="trad-pill err" id="trad-pill">⚠ ${t('trad_err')}</div>`;
+    }
+  }
+
+  mi.innerHTML=`
+    <div class="miw">
+      <img src="${m.strMealThumb}" alt="${name.replace(/"/g,'&quot;')}" onerror="this.style.opacity='.4'"/>
+      <div class="mgrd"></div>
+      <button class="mcls" onclick="closeM()">✕</button>
+      <button class="hbtn" onclick="tFav(event,'${m.idMeal}')" data-hid="${m.idMeal}" aria-label="Favori" style="top:10px;right:44px">${hsvg(m.idMeal)}</button>
+    </div>
+    <div class="mcont">
+      ${pillHTML}
+      <h2 class="mttl">${name}</h2>
+      <div class="mchips">
+        ${cat?`<span class="mchip">${cat}</span>`:''}
+        ${m.strArea?`<span class="mchip">${m.strArea}</span>`:''}
+      </div>
+      ${ings.length?`<div class="msec">${t('ingredients')}</div><div class="igrd">${ingHTML}</div>`:''}
+      ${instr?`<div class="msec">${t('instructions')}</div><div class="instr">${(instr||'').slice(0,950)}${(instr||'').length>950?'…':''}</div>`:''}
+      ${m.strYoutube?`<a href="${m.strYoutube}" target="_blank" rel="noopener noreferrer" class="ytb">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7s-.3-2-1.2-2.8C20.7 3 19.4 3 18.8 2.9 16.3 2.8 12 2.8 12 2.8s-4.3 0-6.8.1c-.6.1-1.9.1-3 1.3C1.3 5 1 7 1 7S.7 9.1.7 11.2v2c0 2.1.3 4.2.3 4.2s.3 2 1.2 2.8c1.1 1.2 2.6 1.1 3.3 1.2C7.3 21.6 12 21.6 12 21.6s4.3 0 6.8-.2c.6-.1 1.9-.1 3-1.3.9-.8 1.2-2.8 1.2-2.8s.3-2.1.3-4.2v-2C23.3 9.1 23 7 23 7zM9.7 15.5V8.4l8.1 3.6-8.1 3.5z"/></svg>
+        ${t('watch_video')}
+      </a>`:''}
+    </div>`;
+}
+
+function updateTradPill(state, msg){
+  const pill=document.getElementById('trad-pill');
+  if(!pill) return;
+  pill.className='trad-pill '+state;
+  if(state==='loading'){
+    pill.innerHTML=`<span class="trad-spinner"></span>${msg}`;
+  } else {
+    pill.textContent=(state==='done'?'✓ ':'⚠ ')+msg;
+  }
+}
+
+function closeM(){document.getElementById('mbk').classList.remove('open');document.body.style.overflow='';}
+function mBd(e){if(e.target===document.getElementById('mbk')||e.target.classList.contains('mov'))closeM();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
+
+/* ═══════════════════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════════════════ */
+updB();
+setTH('home');
+applyLangUI();
+loadHome();
+loaded.home=true;
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#0a0a0a"/>
+<title>RecipeBook — Cuisinez le Monde</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:#0a0a0a;color:#e5e5e5;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none;-webkit-tap-highlight-color:transparent}
+input,select{font-family:inherit}
+a{color:inherit;text-decoration:none}
+:root{--acc:#f5c842;--bg:#0a0a0a;--card:#161616;--bdr:#242424;--mut:rgba(255,255,255,.38);--navh:60px;--safe:env(safe-area-inset-bottom,0px)}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:99px}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pop{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── HEADER ── */
+#hdr{position:fixed;inset:0 0 auto;z-index:90;height:var(--navh);background:rgba(10,10,10,.92);border-bottom:1px solid rgba(255,255,255,.07);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;align-items:center;padding:0 16px;gap:8px}
+.logo{display:flex;align-items:center;gap:8px;flex-shrink:0}
+#lgem{width:30px;height:30px;border-radius:8px;background:var(--acc);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:14px;color:#000;transition:background .35s;flex-shrink:0}
+.lname{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff;white-space:nowrap}
+
+/* Scrollable nav */
+#dnav{display:flex;align-items:center;gap:1px;flex:1;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:2px}
+#dnav::-webkit-scrollbar{display:none}
+.np{display:flex;align-items:center;gap:4px;padding:5px 9px;border-radius:9px;font-size:12px;font-weight:500;color:var(--mut);transition:all .2s;white-space:nowrap;flex-shrink:0}
+.np:hover{color:#fff;background:rgba(255,255,255,.06)}
+.np.on{color:#000;background:var(--acc)}
+/* Nav group separators */
+.nav-sep{width:1px;height:18px;background:rgba(255,255,255,.1);flex-shrink:0;margin:0 4px}
+.fb{background:rgba(0,0,0,.2);color:inherit;font-size:10px;font-weight:700;padding:1px 4px;border-radius:99px;display:none}
+.fb.v{display:inline}
+.hright{display:flex;align-items:center;gap:7px;margin-left:auto;flex-shrink:0;padding-left:8px}
+#dsw{position:relative}
+#dsw input{width:130px;padding:7px 10px 7px 27px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:#fff;font-size:12px;outline:none;caret-color:var(--acc);transition:width .3s,border-color .2s}
+#dsw input::placeholder{color:var(--mut)}
+#dsw input:focus{width:170px;border-color:rgba(255,255,255,.18)}
+.si{position:absolute;left:8px;top:50%;transform:translateY(-50%);width:11px;height:11px;opacity:.35;pointer-events:none;color:#fff}
+#lang-sw{display:flex;align-items:center;background:rgba(255,255,255,.06);border-radius:10px;border:1px solid rgba(255,255,255,.1);overflow:hidden;flex-shrink:0;height:30px}
+.lb{padding:0 9px;font-size:11px;font-weight:600;color:var(--mut);height:100%;display:flex;align-items:center;gap:3px;transition:all .2s}
+.lb:hover{color:#fff}
+.lb.on{background:var(--acc);color:#000}
+.lsep{width:1px;background:rgba(255,255,255,.1);height:16px}
+#ham{display:none;width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,.07);align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+
+/* ── MOBILE DROPDOWN ── */
+#mdd{display:none;position:fixed;top:var(--navh);inset-inline:0;z-index:89;background:rgba(8,8,8,.98);border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:10px 14px 16px;flex-direction:column;gap:2px;animation:fadeUp .2s ease;max-height:calc(100vh - var(--navh));overflow-y:auto}
+#mdd.open{display:flex}
+.mlangrow{display:flex;align-items:center;justify-content:space-between;padding:8px 10px 12px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:6px}
+.mlangrow span{font-size:12px;color:var(--mut);font-weight:500}
+#mlang-sw{display:flex;background:rgba(255,255,255,.06);border-radius:9px;border:1px solid rgba(255,255,255,.1);overflow:hidden;height:30px}
+.mlb{padding:0 11px;font-size:12px;font-weight:600;color:var(--mut);height:100%;display:flex;align-items:center;gap:3px;transition:all .2s}
+.mlb.on{background:var(--acc);color:#000}
+.mlb:hover:not(.on){color:#fff}
+.mlsep{width:1px;background:rgba(255,255,255,.1);height:16px}
+.mob-group-label{font-size:9.5px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.25);padding:10px 10px 4px;margin-top:4px}
+.msr{position:relative;margin-bottom:6px}
+.msr input{width:100%;padding:10px 12px 10px 36px;border-radius:11px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.06);color:#fff;font-size:14px;outline:none;caret-color:var(--acc)}
+.msr input::placeholder{color:var(--mut)}
+.mnb{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:10px;font-size:13.5px;font-weight:500;color:rgba(255,255,255,.6);transition:all .15s;width:100%;text-align:left}
+.mnb:hover{background:rgba(255,255,255,.06);color:#fff}
+.mnb.on{background:var(--acc);color:#000}
+
+/* ── BOTTOM NAV ── */
+#bnav{display:none;position:fixed;bottom:0;inset-inline:0;z-index:90;background:rgba(10,10,10,.96);border-top:1px solid rgba(255,255,255,.07);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.bni{display:flex;height:54px}
+.bnt{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:rgba(255,255,255,.32);font-size:8.5px;font-weight:500;position:relative;padding:3px 1px}
+.bnt .bi{font-size:16px;line-height:1}
+.bnt.on{color:var(--acc)}
+.bnt.on::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:22px;height:2px;background:var(--acc);border-radius:0 0 3px 3px}
+.bntb{position:absolute;top:3px;right:calc(50% - 17px);background:var(--acc);color:#000;font-size:7.5px;font-weight:700;padding:1px 3px;border-radius:99px;display:none}
+.bntb.v{display:block}
+
+/* ── MAIN ── */
+#wrap{padding-top:calc(var(--navh)+22px);padding-bottom:56px;max-width:1280px;margin:0 auto;padding-left:14px;padding-right:14px}
+.page{display:none;animation:fadeUp .28s ease}
+.page.on{display:block}
+.slabel{font-size:10px;font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:var(--mut);margin-bottom:12px}
+.phead{margin-bottom:20px}
+.phead h1{font-family:'Playfair Display',serif;font-size:clamp(22px,5vw,36px);font-weight:700;color:#fff;line-height:1.1}
+.psub{font-size:13px;color:var(--mut);margin-top:4px}
+.psub b{color:var(--acc);font-weight:500}
+
+/* ── CATEGORY TABS (for pages with multiple sub-cats) ── */
+.cat-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.cat-tab{padding:5px 13px;border-radius:99px;font-size:12px;font-weight:500;color:var(--mut);border:1px solid var(--bdr);background:transparent;transition:all .2s;cursor:pointer}
+.cat-tab:hover{color:#fff;border-color:rgba(255,255,255,.2)}
+.cat-tab.on{background:var(--acc);color:#000;border-color:var(--acc)}
+
+/* ── GRID ── */
+.bento{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:480px){.bento{grid-template-columns:repeat(3,1fr);gap:12px}}
+@media(min-width:700px){.bento{grid-template-columns:repeat(4,1fr);gap:14px}}
+@media(min-width:1024px){.bento{grid-template-columns:repeat(5,1fr);gap:15px}}
+
+/* ── CARD ── */
+.card{border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--bdr);cursor:pointer;position:relative;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(0,0,0,.55)}
+.card:active{transform:scale(.97)}
+.cimg{overflow:hidden;aspect-ratio:4/3}
+.cimg img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.card:hover .cimg img{transform:scale(1.07)}
+.cbody{padding:8px 10px 11px}
+.ctitle{font-family:'Playfair Display',serif;font-size:13px;font-weight:600;color:#fff;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ── SKELETON ── */
+.skc{border-radius:14px;overflow:hidden;border:1px solid var(--bdr);background:var(--card)}
+.ski{aspect-ratio:4/3;background:linear-gradient(90deg,rgba(255,255,255,.04) 25%,rgba(255,255,255,.08) 50%,rgba(255,255,255,.04) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite}
+.skb{padding:8px 10px;display:flex;flex-direction:column;gap:5px}
+.skl{height:11px;border-radius:5px;background:linear-gradient(90deg,rgba(255,255,255,.04) 25%,rgba(255,255,255,.08) 50%,rgba(255,255,255,.04) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite}
+.skl.w3{width:70%}
+
+/* ── HEART ── */
+.hbtn{position:absolute;top:7px;right:7px;z-index:5;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;transition:transform .18s}
+.hbtn:hover{transform:scale(1.18)}
+.hbtn:active{transform:scale(.88)}
+.hbtn svg{width:13px;height:13px;transition:fill .18s,stroke .18s}
+
+/* ── HERO ── */
+.feat{position:relative;border-radius:18px;overflow:hidden;cursor:pointer;margin-bottom:8px}
+.feat img{width:100%;height:260px;object-fit:cover;display:block;transition:transform .55s}
+.feat:hover img{transform:scale(1.04)}
+.feat:active img{transform:scale(1.01)}
+.fov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.15) 55%,transparent 100%)}
+.fbody{position:absolute;bottom:0;left:0;right:0;padding:20px 18px}
+.ftag{display:inline-flex;padding:3px 10px;border-radius:99px;font-size:10px;font-weight:600;color:#000;background:var(--acc);margin-bottom:7px}
+.ftitle{font-family:'Playfair Display',serif;font-size:clamp(18px,4vw,26px);font-weight:700;color:#fff;line-height:1.15;max-width:520px}
+.farea{font-size:11px;color:rgba(255,255,255,.45);margin-top:4px}
+.feat .hbtn{top:12px;right:12px;width:32px;height:32px}
+.feat .hbtn svg{width:15px;height:15px}
+.feat-sk{border-radius:18px;height:260px;margin-bottom:8px;background:linear-gradient(90deg,rgba(255,255,255,.04) 25%,rgba(255,255,255,.08) 50%,rgba(255,255,255,.04) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite}
+
+/* ── WORLD/AREA SELECT ── */
+.page-controls{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px;margin-bottom:20px}
+.selw{position:relative}
+.asel{-webkit-appearance:none;appearance:none;padding:9px 30px 9px 12px;border-radius:11px;border:1px solid var(--bdr);background:var(--card);color:#e5e5e5;font-size:13px;font-weight:500;cursor:pointer;outline:none;transition:border-color .2s}
+.asel:hover{border-color:rgba(255,255,255,.2)}
+.selw svg{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:13px;height:13px;color:var(--mut);pointer-events:none}
+
+/* ── EMPTY ── */
+.empty{text-align:center;padding:64px 20px;color:var(--mut)}
+.eico{font-size:46px;display:block;margin-bottom:14px}
+.empty p{font-size:14px;line-height:1.7}
+
+/* ── SEARCH INPUT ── */
+.sfull{position:relative;margin-bottom:20px}
+.sfull input{width:100%;padding:13px 14px 13px 42px;border-radius:14px;border:1px solid var(--bdr);background:rgba(255,255,255,.04);color:#fff;font-size:14px;outline:none;caret-color:var(--acc);transition:border-color .2s}
+.sfull input:focus{border-color:rgba(255,255,255,.18)}
+.sfull input::placeholder{color:var(--mut)}
+.sfull .si{left:13px;width:16px;height:16px}
+
+/* ── MODAL ── */
+#mbk{display:none;position:fixed;inset:0;z-index:200;align-items:flex-end;justify-content:center}
+#mbk.open{display:flex}
+@media(min-width:600px){#mbk{align-items:center;padding:18px}}
+.mov{position:absolute;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.mbox{position:relative;width:100%;max-width:660px;max-height:92vh;overflow-y:auto;background:#111;border-radius:20px 20px 0 0;border:1px solid rgba(255,255,255,.09);z-index:1;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;animation:slideUp .25s ease}
+@media(min-width:600px){.mbox{border-radius:20px;animation:pop .25s ease}}
+.miw{position:relative}
+.miw img{width:100%;height:220px;object-fit:cover;border-radius:20px 20px 0 0;display:block}
+@media(min-width:600px){.miw img{height:240px}}
+.mgrd{position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(to top,#111,transparent);pointer-events:none}
+.mcls{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.7);color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center;z-index:5;transition:background .2s}
+.mcls:hover{background:rgba(255,255,255,.15)}
+.miw .hbtn{top:10px;right:44px}
+.mcont{padding:0 16px 26px}
+.mttl{font-family:'Playfair Display',serif;font-size:clamp(18px,5vw,25px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:9px}
+.mchips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.mchip{padding:3px 9px;border-radius:99px;background:rgba(255,255,255,.07);font-size:11px;color:rgba(255,255,255,.5)}
+.msec{font-size:10px;font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:var(--mut);margin:14px 0 8px}
+.igrd{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+@media(max-width:380px){.igrd{grid-template-columns:1fr}}
+.ii{display:flex;align-items:center;gap:6px;font-size:12.5px;color:rgba(255,255,255,.75)}
+.idot{width:5px;height:5px;border-radius:50%;flex-shrink:0;background:var(--acc)}
+.imea{color:var(--mut);font-size:11.5px;margin-right:2px}
+.instr{font-size:12.5px;line-height:1.75;color:rgba(255,255,255,.6);white-space:pre-line}
+.ytb{display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding:8px 14px;border-radius:10px;background:rgba(255,50,50,.1);color:#ff5555;font-size:13px;font-weight:500;transition:background .2s}
+.ytb:hover{background:rgba(255,50,50,.18)}
+.mskw{padding:18px;display:flex;flex-direction:column;gap:10px}
+.sk{background:linear-gradient(90deg,rgba(255,255,255,.04) 25%,rgba(255,255,255,.08) 50%,rgba(255,255,255,.04) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:9px}
+.tpill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:500;margin-bottom:10px}
+.tpill.tload{color:#f5c842;background:rgba(245,200,66,.08);border:1px solid rgba(245,200,66,.2)}
+.tpill.tdone{color:#4ade80;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2)}
+.tpill.terr{color:rgba(255,180,100,.8);background:rgba(255,150,50,.06);border:1px solid rgba(255,150,50,.15)}
+.tspin{width:10px;height:10px;border:1.5px solid rgba(245,200,66,.25);border-top-color:#f5c842;border-radius:50%;animation:spin .75s linear infinite;flex-shrink:0}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){#dnav{display:none}#dsw{display:none}#ham{display:flex}#bnav{display:block}#wrap{padding-bottom:calc(54px + var(--safe) + 24px)}}
+@media(min-width:901px){#ham{display:none}#mdd{display:none!important}}
+@media(min-width:700px){.feat img{height:340px}.feat-sk{height:340px}}
+@media(hover:none){.card:hover{transform:none;box-shadow:none}.card:hover .cimg img{transform:none}.card:active{transform:scale(.97)}}
+@media(max-width:900px) and (orientation:landscape){.feat img,.feat-sk{height:200px}:root{--navh:52px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header id="hdr">
+  <div class="logo">
+    <div id="lgem">R</div>
+    <span class="lname">RecipeBook</span>
+  </div>
+
+  <nav id="dnav">
+    <!-- Accueil -->
+    <button class="np on" data-t="home"    onclick="go('home')">🏠 <span data-ui="n_home">Accueil</span></button>
+    <div class="nav-sep"></div>
+    <!-- Viandes -->
+    <button class="np" data-t="beef"       onclick="go('beef')">🥩 <span data-ui="n_beef">Bœuf</span></button>
+    <button class="np" data-t="chicken"    onclick="go('chicken')">🍗 <span data-ui="n_chicken">Poulet</span></button>
+    <button class="np" data-t="pork"       onclick="go('pork')">🥓 <span data-ui="n_pork">Porc</span></button>
+    <button class="np" data-t="lamb"       onclick="go('lamb')">🐑 <span data-ui="n_lamb">Agneau</span></button>
+    <button class="np" data-t="seafood"    onclick="go('seafood')">🦞 <span data-ui="n_seafood">Fruits de mer</span></button>
+    <div class="nav-sep"></div>
+    <!-- Végé / Sain -->
+    <button class="np" data-t="vegetarian" onclick="go('vegetarian')">🥗 <span data-ui="n_veg">Végétarien</span></button>
+    <button class="np" data-t="vegan"      onclick="go('vegan')">🌱 <span data-ui="n_vegan">Vegan</span></button>
+    <div class="nav-sep"></div>
+    <!-- Féculents & Plats -->
+    <button class="np" data-t="pasta"      onclick="go('pasta')">🍝 <span data-ui="n_pasta">Pâtes</span></button>
+    <button class="np" data-t="breakfast"  onclick="go('breakfast')">🥞 <span data-ui="n_breakfast">Petit-déj</span></button>
+    <button class="np" data-t="side"       onclick="go('side')">🥙 <span data-ui="n_side">Accompagnements</span></button>
+    <button class="np" data-t="starter"    onclick="go('starter')">🥗 <span data-ui="n_starter">Entrées</span></button>
+    <div class="nav-sep"></div>
+    <!-- Sucré -->
+    <button class="np" data-t="dessert"    onclick="go('dessert')">🍰 <span data-ui="n_dessert">Desserts</span></button>
+    <button class="np" data-t="goat"       onclick="go('goat')">🐐 <span data-ui="n_goat">Chèvre</span></button>
+    <div class="nav-sep"></div>
+    <!-- Monde -->
+    <button class="np" data-t="world"      onclick="go('world')">🌍 <span data-ui="n_world">Cuisine du Monde</span></button>
+    <div class="nav-sep"></div>
+    <!-- Outils -->
+    <button class="np" data-t="fav"        onclick="go('fav')">❤️ <span data-ui="n_fav">Favoris</span> <span class="fb" id="db">0</span></button>
+  </nav>
+
   <div class="hright">
     <div id="dsw">
       <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
@@ -228,7 +1064,7 @@ a{color:inherit;text-decoration:none}
   </div>
 </header>
 
-<!-- MOBILE MENU -->
+<!-- ═══ MOBILE MENU ═══ -->
 <div id="mdd">
   <div class="mlangrow">
     <span>Langue / Language</span>
@@ -242,80 +1078,135 @@ a{color:inherit;text-decoration:none}
     <svg class="si" style="left:11px;width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
     <input type="search" id="ms" placeholder="Rechercher…" oninput="onSrch(this.value)" onfocus="go('search');cM()" autocomplete="off"/>
   </div>
-  <button class="mnb on" data-mt="home"   onclick="go('home');  cM()">🏠 <span data-ui="nav_home">Accueil</span></button>
-  <button class="mnb"   data-mt="pastry" onclick="go('pastry');cM()">🍰 <span data-ui="nav_pastry">Pâtisseries</span></button>
-  <button class="mnb"   data-mt="meat"   onclick="go('meat');  cM()">🥩 <span data-ui="nav_meat">Plats Résistants</span></button>
-  <button class="mnb"   data-mt="veggie" onclick="go('veggie');cM()">🥗 <span data-ui="nav_veggie">Healthy &amp; Veggie</span></button>
-  <button class="mnb"   data-mt="world"  onclick="go('world'); cM()">🌍 <span data-ui="nav_world">Cuisine du Monde</span></button>
-  <button class="mnb"   data-mt="fav"    onclick="go('fav');   cM()">❤️ <span data-ui="nav_fav">Favoris</span></button>
-  <button class="mnb"   data-mt="search" onclick="go('search');cM()">🔍 <span data-ui="nav_search">Recherche</span></button>
+  <button class="mnb on" data-mt="home"        onclick="go('home');cM()">       🏠 <span data-ui="n_home">Accueil</span></button>
+  <div class="mob-group-label" data-ui="mg_meat">Viandes & Poissons</div>
+  <button class="mnb" data-mt="beef"           onclick="go('beef');cM()">       🥩 <span data-ui="n_beef">Bœuf</span></button>
+  <button class="mnb" data-mt="chicken"        onclick="go('chicken');cM()">    🍗 <span data-ui="n_chicken">Poulet</span></button>
+  <button class="mnb" data-mt="pork"           onclick="go('pork');cM()">       🥓 <span data-ui="n_pork">Porc</span></button>
+  <button class="mnb" data-mt="lamb"           onclick="go('lamb');cM()">       🐑 <span data-ui="n_lamb">Agneau</span></button>
+  <button class="mnb" data-mt="seafood"        onclick="go('seafood');cM()">    🦞 <span data-ui="n_seafood">Fruits de mer</span></button>
+  <button class="mnb" data-mt="goat"           onclick="go('goat');cM()">       🐐 <span data-ui="n_goat">Chèvre</span></button>
+  <div class="mob-group-label" data-ui="mg_veg">Végétarien &amp; Vegan</div>
+  <button class="mnb" data-mt="vegetarian"     onclick="go('vegetarian');cM()"> 🥗 <span data-ui="n_veg">Végétarien</span></button>
+  <button class="mnb" data-mt="vegan"          onclick="go('vegan');cM()">      🌱 <span data-ui="n_vegan">Vegan</span></button>
+  <div class="mob-group-label" data-ui="mg_dishes">Plats &amp; Féculents</div>
+  <button class="mnb" data-mt="pasta"          onclick="go('pasta');cM()">      🍝 <span data-ui="n_pasta">Pâtes</span></button>
+  <button class="mnb" data-mt="breakfast"      onclick="go('breakfast');cM()">  🥞 <span data-ui="n_breakfast">Petit-déjeuner</span></button>
+  <button class="mnb" data-mt="side"           onclick="go('side');cM()">       🥙 <span data-ui="n_side">Accompagnements</span></button>
+  <button class="mnb" data-mt="starter"        onclick="go('starter');cM()">    🥗 <span data-ui="n_starter">Entrées</span></button>
+  <button class="mnb" data-mt="dessert"        onclick="go('dessert');cM()">    🍰 <span data-ui="n_dessert">Desserts</span></button>
+  <div class="mob-group-label" data-ui="mg_world">Cuisines du Monde</div>
+  <button class="mnb" data-mt="world"          onclick="go('world');cM()">      🌍 <span data-ui="n_world">Cuisine du Monde</span></button>
+  <div class="mob-group-label" data-ui="mg_other">Autres</div>
+  <button class="mnb" data-mt="fav"            onclick="go('fav');cM()">        ❤️ <span data-ui="n_fav">Favoris</span></button>
+  <button class="mnb" data-mt="search"         onclick="go('search');cM()">     🔍 <span data-ui="n_search">Recherche</span></button>
 </div>
 
-<!-- PAGES -->
+<!-- ═══ PAGES ═══ -->
 <div id="wrap">
+
+  <!-- HOME -->
   <section class="page on" id="page-home">
     <div class="slabel" id="lbl-feat">✨ Recette à la une</div>
     <div id="fw"></div>
     <div id="hr"></div>
   </section>
-  <section class="page" id="page-pastry">
-    <div class="phead"><h1>🍰 <span data-ui="nav_pastry">Pâtisseries</span></h1><p class="psub" id="pcount"></p></div>
-    <div id="pg" class="bento"></div>
-  </section>
-  <section class="page" id="page-meat">
-    <div class="phead"><h1>🥩 <span data-ui="nav_meat">Plats Résistants</span></h1><p class="psub" id="mcount"></p></div>
-    <div id="mg" class="bento"></div>
-  </section>
-  <section class="page" id="page-veggie">
-    <div class="phead"><h1>🥗 <span data-ui="nav_veggie">Healthy &amp; Veggie</span></h1><p class="psub" id="vcount"></p></div>
-    <div id="vg" class="bento"></div>
-  </section>
+
+  <!-- Single-category pages -->
+  <section class="page" id="page-beef">      <div class="phead"><h1>🥩 <span data-ui="n_beef">Bœuf</span></h1><p class="psub" id="c-beef-sub"></p></div><div class="bento" id="c-beef"></div></section>
+  <section class="page" id="page-chicken">   <div class="phead"><h1>🍗 <span data-ui="n_chicken">Poulet</span></h1><p class="psub" id="c-chicken-sub"></p></div><div class="bento" id="c-chicken"></div></section>
+  <section class="page" id="page-pork">      <div class="phead"><h1>🥓 <span data-ui="n_pork">Porc</span></h1><p class="psub" id="c-pork-sub"></p></div><div class="bento" id="c-pork"></div></section>
+  <section class="page" id="page-lamb">      <div class="phead"><h1>🐑 <span data-ui="n_lamb">Agneau</span></h1><p class="psub" id="c-lamb-sub"></p></div><div class="bento" id="c-lamb"></div></section>
+  <section class="page" id="page-seafood">   <div class="phead"><h1>🦞 <span data-ui="n_seafood">Fruits de mer</span></h1><p class="psub" id="c-seafood-sub"></p></div><div class="bento" id="c-seafood"></div></section>
+  <section class="page" id="page-goat">      <div class="phead"><h1>🐐 <span data-ui="n_goat">Chèvre</span></h1><p class="psub" id="c-goat-sub"></p></div><div class="bento" id="c-goat"></div></section>
+  <section class="page" id="page-vegetarian"><div class="phead"><h1>🥗 <span data-ui="n_veg">Végétarien</span></h1><p class="psub" id="c-vegetarian-sub"></p></div><div class="bento" id="c-vegetarian"></div></section>
+  <section class="page" id="page-vegan">     <div class="phead"><h1>🌱 <span data-ui="n_vegan">Vegan</span></h1><p class="psub" id="c-vegan-sub"></p></div><div class="bento" id="c-vegan"></div></section>
+  <section class="page" id="page-pasta">     <div class="phead"><h1>🍝 <span data-ui="n_pasta">Pâtes</span></h1><p class="psub" id="c-pasta-sub"></p></div><div class="bento" id="c-pasta"></div></section>
+  <section class="page" id="page-breakfast"> <div class="phead"><h1>🥞 <span data-ui="n_breakfast">Petit-déjeuner</span></h1><p class="psub" id="c-breakfast-sub"></p></div><div class="bento" id="c-breakfast"></div></section>
+  <section class="page" id="page-side">      <div class="phead"><h1>🥙 <span data-ui="n_side">Accompagnements</span></h1><p class="psub" id="c-side-sub"></p></div><div class="bento" id="c-side"></div></section>
+  <section class="page" id="page-starter">   <div class="phead"><h1>🍽️ <span data-ui="n_starter">Entrées</span></h1><p class="psub" id="c-starter-sub"></p></div><div class="bento" id="c-starter"></div></section>
+  <section class="page" id="page-dessert">   <div class="phead"><h1>🍰 <span data-ui="n_dessert">Desserts</span></h1><p class="psub" id="c-dessert-sub"></p></div><div class="bento" id="c-dessert"></div></section>
+
+  <!-- WORLD -->
   <section class="page" id="page-world">
-    <div class="whead">
-      <div class="phead" style="margin:0"><h1>🌍 <span data-ui="nav_world">Cuisine du Monde</span></h1><p class="psub" id="wcount"></p></div>
+    <div class="page-controls">
+      <div class="phead" style="margin:0"><h1>🌍 <span data-ui="n_world">Cuisine du Monde</span></h1><p class="psub" id="world-sub"></p></div>
       <div class="selw">
         <select class="asel" id="asel" onchange="loadArea(this.value)">
-          <option value="French">🇫🇷 Française</option>
-          <option value="Italian">🇮🇹 Italienne</option>
-          <option value="Japanese">🇯🇵 Japonaise</option>
-          <option value="Canadian">🇨🇦 Canadienne</option>
-          <option value="Mexican">🇲🇽 Mexicaine</option>
-          <option value="Indian">🇮🇳 Indienne</option>
-          <option value="Chinese">🇨🇳 Chinoise</option>
-          <option value="Greek">🇬🇷 Grecque</option>
+          <optgroup label="🌍 Afrique &amp; Moyen-Orient">
+            <option value="Moroccan">🇲🇦 Marocaine</option>
+            <option value="Egyptian">🇪🇬 Égyptienne</option>
+            <option value="Tunisian">🇹🇳 Tunisienne</option>
+          </optgroup>
+          <optgroup label="🌎 Amériques">
+            <option value="American">🇺🇸 Américaine</option>
+            <option value="Canadian">🇨🇦 Canadienne</option>
+            <option value="Mexican">🇲🇽 Mexicaine</option>
+            <option value="Jamaican">🇯🇲 Jamaïcaine</option>
+          </optgroup>
+          <optgroup label="🌏 Asie">
+            <option value="Chinese">🇨🇳 Chinoise</option>
+            <option value="Japanese">🇯🇵 Japonaise</option>
+            <option value="Indian">🇮🇳 Indienne</option>
+            <option value="Thai">🇹🇭 Thaïlandaise</option>
+            <option value="Malaysian">🇲🇾 Malaisienne</option>
+            <option value="Filipino">🇵🇭 Philippinoise</option>
+            <option value="Vietnamese">🇻🇳 Vietnamienne</option>
+          </optgroup>
+          <optgroup label="🌍 Europe">
+            <option value="French" selected>🇫🇷 Française</option>
+            <option value="Italian">🇮🇹 Italienne</option>
+            <option value="Spanish">🇪🇸 Espagnole</option>
+            <option value="Greek">🇬🇷 Grecque</option>
+            <option value="British">🇬🇧 Britannique</option>
+            <option value="Irish">🇮🇪 Irlandaise</option>
+            <option value="Dutch">🇳🇱 Néerlandaise</option>
+            <option value="Polish">🇵🇱 Polonaise</option>
+            <option value="Portuguese">🇵🇹 Portugaise</option>
+            <option value="Russian">🇷🇺 Russe</option>
+            <option value="Croatian">🇭🇷 Croate</option>
+          </optgroup>
+          <optgroup label="🌏 Proche-Orient">
+            <option value="Turkish">🇹🇷 Turque</option>
+          </optgroup>
         </select>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
     </div>
-    <div id="wg" class="bento"></div>
+    <div class="bento" id="wg"></div>
   </section>
+
+  <!-- FAVORITES -->
   <section class="page" id="page-fav">
-    <div class="phead"><h1>❤️ <span data-ui="nav_fav">Favoris</span></h1><p class="psub" id="fcount"></p></div>
+    <div class="phead"><h1>❤️ <span data-ui="n_fav">Favoris</span></h1><p class="psub" id="fcount"></p></div>
     <div id="fvw"></div>
   </section>
+
+  <!-- SEARCH -->
   <section class="page" id="page-search">
-    <div class="phead"><h1>🔍 <span data-ui="nav_search">Recherche</span></h1></div>
+    <div class="phead"><h1>🔍 <span data-ui="n_search">Recherche</span></h1></div>
     <div class="sfull">
       <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
       <input type="search" id="spi" placeholder="Ex : pasta, chicken, sushi…" oninput="onSrch(this.value)" autocomplete="off"/>
     </div>
-    <div id="sg" class="bento"></div>
+    <div class="bento" id="sg"></div>
     <div id="se" class="empty" style="display:none"><span class="eico">😕</span><p id="sem">Aucun résultat.</p></div>
   </section>
+
 </div>
 
-<!-- BOTTOM NAV -->
+<!-- ═══ BOTTOM NAV ═══ -->
 <nav id="bnav">
   <div class="bni">
-    <button class="bnt on" data-bt="home"   onclick="go('home')">  <span class="bi">🏠</span><span data-ui="bnav_home">Accueil</span></button>
-    <button class="bnt"    data-bt="pastry" onclick="go('pastry')"><span class="bi">🍰</span><span data-ui="bnav_pastry">Pâtisseries</span></button>
-    <button class="bnt"    data-bt="veggie" onclick="go('veggie')"><span class="bi">🥗</span><span data-ui="bnav_veggie">Veggie</span></button>
-    <button class="bnt"    data-bt="world"  onclick="go('world')"> <span class="bi">🌍</span><span data-ui="bnav_world">Monde</span></button>
-    <button class="bnt"    data-bt="fav"    onclick="go('fav')">   <span class="bi">❤️</span><span data-ui="nav_fav">Favoris</span><span class="bntb" id="mb2">0</span></button>
+    <button class="bnt on" data-bt="home"   onclick="go('home')">  <span class="bi">🏠</span><span data-ui="nb_home">Accueil</span></button>
+    <button class="bnt"    data-bt="beef"   onclick="go('beef')">  <span class="bi">🥩</span><span data-ui="nb_beef">Viandes</span></button>
+    <button class="bnt"    data-bt="dessert"onclick="go('dessert')"><span class="bi">🍰</span><span data-ui="nb_dessert">Desserts</span></button>
+    <button class="bnt"    data-bt="world"  onclick="go('world')"> <span class="bi">🌍</span><span data-ui="nb_world">Monde</span></button>
+    <button class="bnt"    data-bt="fav"    onclick="go('fav')">   <span class="bi">❤️</span><span data-ui="n_fav">Favoris</span><span class="bntb" id="mb2">0</span></button>
   </div>
 </nav>
 
-<!-- MODAL -->
+<!-- ═══ MODAL ═══ -->
 <div id="mbk" onclick="mBd(event)">
   <div class="mov"></div>
   <div class="mbox" onclick="event.stopPropagation()"><div id="mi"></div></div>
@@ -325,30 +1216,63 @@ a{color:inherit;text-decoration:none}
 'use strict';
 
 /* ══════════════════════════════════════════════════════
+   CATALOGUE — toutes les catégories TheMealDB
+══════════════════════════════════════════════════════ */
+// tab id → { mdbCat: string, emoji, label_fr, label_en }
+const CATS = {
+  beef:       { mdb:'Beef',        emoji:'🥩', fr:'Bœuf',           en:'Beef' },
+  chicken:    { mdb:'Chicken',     emoji:'🍗', fr:'Poulet',          en:'Chicken' },
+  pork:       { mdb:'Pork',        emoji:'🥓', fr:'Porc',            en:'Pork' },
+  lamb:       { mdb:'Lamb',        emoji:'🐑', fr:'Agneau',          en:'Lamb' },
+  seafood:    { mdb:'Seafood',     emoji:'🦞', fr:'Fruits de mer',   en:'Seafood' },
+  goat:       { mdb:'Goat',        emoji:'🐐', fr:'Chèvre',          en:'Goat' },
+  vegetarian: { mdb:'Vegetarian',  emoji:'🥗', fr:'Végétarien',      en:'Vegetarian' },
+  vegan:      { mdb:'Vegan',       emoji:'🌱', fr:'Vegan',           en:'Vegan' },
+  pasta:      { mdb:'Pasta',       emoji:'🍝', fr:'Pâtes',           en:'Pasta' },
+  breakfast:  { mdb:'Breakfast',   emoji:'🥞', fr:'Petit-déjeuner',  en:'Breakfast' },
+  side:       { mdb:'Side',        emoji:'🥙', fr:'Accompagnements', en:'Side Dishes' },
+  starter:    { mdb:'Starter',     emoji:'🍽️', fr:'Entrées',         en:'Starters' },
+  dessert:    { mdb:'Dessert',     emoji:'🍰', fr:'Desserts',        en:'Desserts' },
+};
+
+/* ══════════════════════════════════════════════════════
    UI STRINGS
 ══════════════════════════════════════════════════════ */
 const UI = {
   fr: {
-    nav_home:'Accueil', nav_pastry:'Pâtisseries', nav_meat:'Plats Résistants',
-    nav_veggie:'Healthy & Veggie', nav_world:'Cuisine du Monde', nav_fav:'Favoris', nav_search:'Recherche',
-    bnav_home:'Accueil', bnav_pastry:'Pâtisseries', bnav_veggie:'Veggie', bnav_world:'Monde',
+    n_home:'Accueil', n_beef:'Bœuf', n_chicken:'Poulet', n_pork:'Porc', n_lamb:'Agneau',
+    n_seafood:'Fruits de mer', n_goat:'Chèvre', n_veg:'Végétarien', n_vegan:'Vegan',
+    n_pasta:'Pâtes', n_breakfast:'Petit-déj', n_side:'Accompagnements',
+    n_starter:'Entrées', n_dessert:'Desserts', n_world:'Cuisine du Monde',
+    n_fav:'Favoris', n_search:'Recherche',
+    nb_home:'Accueil', nb_beef:'Viandes', nb_dessert:'Desserts', nb_world:'Monde',
+    mg_meat:'Viandes & Poissons', mg_veg:'Végétarien & Vegan',
+    mg_dishes:'Plats & Féculents', mg_world:'Cuisines du Monde', mg_other:'Autres',
     lbl_feat:'✨ Recette à la une',
-    lbl_d:'🍰 Pâtisseries du moment', lbl_m:'🥩 Plats incontournables', lbl_v:'🥗 Cuisine healthy',
+    lbl_d:'🍰 Desserts du moment', lbl_m:'🥩 Plats incontournables',
+    lbl_v:'🥗 Cuisine healthy', lbl_p:'🍝 Pâtes & riz',
     recipes:'recettes', loading:'Chargement…',
-    no_fav:'Aucun favori pour l\'instant.\nCliquez sur le ❤️ pour en sauvegarder.',
+    no_fav:'Aucun favori.\nCliquez sur ❤️ pour sauvegarder.',
     saved:'sauvegardée(s)', no_result:'Aucun résultat pour',
     srch_ph:'Ex : pasta, chicken, sushi…', srch_desk:'Rechercher…',
     ing:'Ingrédients', instr:'Instructions', watch:'Voir la recette en vidéo',
-    tload:'Traduction en cours…', tdone:'✓ Traduit en français 🇫🇷', terr:'Version originale (traduction indisponible)',
+    tload:'Traduction en cours…', tdone:'✓ Traduit en français 🇫🇷',
+    terr:'Version originale (traduction indisponible)',
   },
   en: {
-    nav_home:'Home', nav_pastry:'Pastries', nav_meat:'Hearty Dishes',
-    nav_veggie:'Healthy & Veggie', nav_world:'World Cuisine', nav_fav:'Favourites', nav_search:'Search',
-    bnav_home:'Home', bnav_pastry:'Pastries', bnav_veggie:'Veggie', bnav_world:'World',
+    n_home:'Home', n_beef:'Beef', n_chicken:'Chicken', n_pork:'Pork', n_lamb:'Lamb',
+    n_seafood:'Seafood', n_goat:'Goat', n_veg:'Vegetarian', n_vegan:'Vegan',
+    n_pasta:'Pasta', n_breakfast:'Breakfast', n_side:'Side Dishes',
+    n_starter:'Starters', n_dessert:'Desserts', n_world:'World Cuisine',
+    n_fav:'Favourites', n_search:'Search',
+    nb_home:'Home', nb_beef:'Meat', nb_dessert:'Desserts', nb_world:'World',
+    mg_meat:'Meat & Fish', mg_veg:'Vegetarian & Vegan',
+    mg_dishes:'Dishes & Sides', mg_world:'World Cuisines', mg_other:'Other',
     lbl_feat:'✨ Featured Recipe',
-    lbl_d:'🍰 Pastries', lbl_m:'🥩 Must-try Dishes', lbl_v:'🥗 Healthy Cooking',
+    lbl_d:'🍰 Desserts', lbl_m:'🥩 Must-try Dishes',
+    lbl_v:'🥗 Healthy Cooking', lbl_p:'🍝 Pasta & Rice',
     recipes:'recipes', loading:'Loading…',
-    no_fav:'No favourites yet.\nClick ❤️ on any recipe to save it.',
+    no_fav:'No favourites yet.\nClick ❤️ to save recipes.',
     saved:'saved', no_result:'No results for',
     srch_ph:'e.g. pasta, chicken, sushi…', srch_desk:'Search…',
     ing:'Ingredients', instr:'Instructions', watch:'Watch recipe video',
@@ -357,34 +1281,44 @@ const UI = {
 };
 
 /* ══════════════════════════════════════════════════════
-   THEMES
+   THEMES — une couleur par grande famille
 ══════════════════════════════════════════════════════ */
 const TH = {
-  home:  {acc:'#f5c842',bg:'#0a0a0a',card:'#161616',bdr:'#242424'},
-  pastry:{acc:'#f472b6',bg:'#160b10',card:'#200f1a',bdr:'#3d1a2e'},
-  meat:  {acc:'#fb923c',bg:'#110a00',card:'#1a1100',bdr:'#3a2600'},
-  veggie:{acc:'#4ade80',bg:'#030f07',card:'#07180c',bdr:'#133620'},
-  world: {acc:'#818cf8',bg:'#04071a',card:'#0a0e28',bdr:'#1a2050'},
-  fav:   {acc:'#e879f9',bg:'#11070f',card:'#1c0c1a',bdr:'#3d1040'},
-  search:{acc:'#38bdf8',bg:'#03080f',card:'#0a1020',bdr:'#163040'},
+  home:       {acc:'#f5c842',bg:'#0a0a0a',card:'#161616',bdr:'#242424'},
+  beef:       {acc:'#fb923c',bg:'#110900',card:'#1c1100',bdr:'#3a2200'},
+  chicken:    {acc:'#fbbf24',bg:'#110d00',card:'#1c1500',bdr:'#3a2c00'},
+  pork:       {acc:'#f97316',bg:'#120800',card:'#1e1000',bdr:'#3d2000'},
+  lamb:       {acc:'#e879f9',bg:'#12080f',card:'#1e0d1a',bdr:'#3d1040'},
+  seafood:    {acc:'#38bdf8',bg:'#03080f',card:'#0a1020',bdr:'#163040'},
+  goat:       {acc:'#a3e635',bg:'#080f03',card:'#101a07',bdr:'#1e3510'},
+  vegetarian: {acc:'#4ade80',bg:'#030f07',card:'#07180c',bdr:'#133620'},
+  vegan:      {acc:'#6ee7b7',bg:'#030f0a',card:'#071a10',bdr:'#10381e'},
+  pasta:      {acc:'#f59e0b',bg:'#110d00',card:'#1c1400',bdr:'#3a2c00'},
+  breakfast:  {acc:'#fb7185',bg:'#120a0b',card:'#1e1010',bdr:'#3d1820'},
+  side:       {acc:'#94a3b8',bg:'#0a0a0f',card:'#14141e',bdr:'#22223a'},
+  starter:    {acc:'#c084fc',bg:'#0d0814',card:'#18101e',bdr:'#30183d'},
+  dessert:    {acc:'#f472b6',bg:'#160b10',card:'#200f1a',bdr:'#3d1a2e'},
+  world:      {acc:'#818cf8',bg:'#04071a',card:'#0a0e28',bdr:'#1a2050'},
+  fav:        {acc:'#e879f9',bg:'#11070f',card:'#1c0c1a',bdr:'#3d1040'},
+  search:     {acc:'#38bdf8',bg:'#03080f',card:'#0a1020',bdr:'#163040'},
 };
 
 /* ══════════════════════════════════════════════════════
    STATE
 ══════════════════════════════════════════════════════ */
-let cur='home', loaded={}, favs=[], favM={}, sT=null, lang='fr';
-const TC={}; // translation cache
-try { favs=JSON.parse(localStorage.getItem('rb6')||'[]'); } catch(e){}
-try { const l=localStorage.getItem('rb6-lang'); if(l==='en'||l==='fr') lang=l; } catch(e){}
-const u = k => UI[lang][k] || UI.fr[k] || k;
+let cur='home', loaded={}, favs=[], favM={}, sT=null, lang='fr', mOpen=false;
+const TC={};
+try{favs=JSON.parse(localStorage.getItem('rb7')||'[]');}catch(e){}
+try{const l=localStorage.getItem('rb7-lang');if(l==='en'||l==='fr')lang=l;}catch(e){}
+const u=k=>UI[lang][k]||UI.fr[k]||k;
 
 /* ══════════════════════════════════════════════════════
    THEME
 ══════════════════════════════════════════════════════ */
-function setTH(t) {
-  const h=TH[t]||TH.home, r=document.documentElement.style;
-  r.setProperty('--acc',h.acc); r.setProperty('--bg',h.bg);
-  r.setProperty('--card',h.card); r.setProperty('--bdr',h.bdr);
+function setTH(t){
+  const h=TH[t]||TH.home,r=document.documentElement.style;
+  r.setProperty('--acc',h.acc);r.setProperty('--bg',h.bg);
+  r.setProperty('--card',h.card);r.setProperty('--bdr',h.bdr);
   document.body.style.background=h.bg;
   document.getElementById('lgem').style.background=h.acc;
 }
@@ -392,137 +1326,108 @@ function setTH(t) {
 /* ══════════════════════════════════════════════════════
    LANGUAGE
 ══════════════════════════════════════════════════════ */
-function setLang(l) {
-  lang=l; try{localStorage.setItem('rb6-lang',l);}catch(e){}
+function setLang(l){
+  lang=l;try{localStorage.setItem('rb7-lang',l);}catch(e){}
   applyUI();
 }
-function applyUI() {
-  document.querySelectorAll('[data-ui]').forEach(el=>{ el.textContent=u(el.dataset.ui); });
-  document.getElementById('ds').placeholder  = u('srch_desk');
-  document.getElementById('ms').placeholder  = u('srch_ph');
-  document.getElementById('spi').placeholder = u('srch_ph');
-  document.getElementById('lbl-feat').textContent = u('lbl_feat');
-  ['hlbl-d','hlbl-m','hlbl-v'].forEach((id,i)=>{
-    const el=document.getElementById(id); if(el) el.textContent=u(['lbl_d','lbl_m','lbl_v'][i]);
+function applyUI(){
+  document.querySelectorAll('[data-ui]').forEach(el=>el.textContent=u(el.dataset.ui));
+  document.getElementById('ds').placeholder=u('srch_desk');
+  document.getElementById('ms').placeholder=u('srch_ph');
+  document.getElementById('spi').placeholder=u('srch_ph');
+  document.getElementById('lbl-feat').textContent=u('lbl_feat');
+  ['hlbl-d','hlbl-m','hlbl-v','hlbl-p'].forEach((id,i)=>{
+    const el=document.getElementById(id);if(el)el.textContent=u(['lbl_d','lbl_m','lbl_v','lbl_p'][i]);
   });
-  ['lbfr','mlbfr'].forEach(id=>{ const el=document.getElementById(id); if(el) el.classList.toggle('on',lang==='fr'); });
-  ['lben','mlben'].forEach(id=>{ const el=document.getElementById(id); if(el) el.classList.toggle('on',lang==='en'); });
+  ['lbfr','mlbfr'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.toggle('on',lang==='fr');});
+  ['lben','mlben'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.toggle('on',lang==='en');});
 }
 
 /* ══════════════════════════════════════════════════════
-   NAV
+   NAVIGATION
 ══════════════════════════════════════════════════════ */
-function go(tab) {
-  cur=tab; cM();
+function go(tab){
+  cur=tab;cM();
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
-  const pg=document.getElementById('page-'+tab); if(pg) pg.classList.add('on');
-  document.querySelectorAll('.np[data-t]').forEach(b=>b.classList.toggle('on',b.dataset.t===tab));
-  document.querySelectorAll('.mnb[data-mt]').forEach(b=>b.classList.toggle('on',b.dataset.mt===tab));
-  document.querySelectorAll('.bnt[data-bt]').forEach(b=>b.classList.toggle('on',b.dataset.bt===tab));
+  const pg=document.getElementById('page-'+tab);if(pg)pg.classList.add('on');
+  document.querySelectorAll('[data-t]').forEach(b=>b.classList.toggle('on',b.dataset.t===tab));
+  document.querySelectorAll('[data-mt]').forEach(b=>b.classList.toggle('on',b.dataset.mt===tab));
+  document.querySelectorAll('[data-bt]').forEach(b=>b.classList.toggle('on',b.dataset.bt===tab));
   setTH(tab);
   if(!loaded[tab]){loaded[tab]=true;loadTab(tab);}
   if(tab==='fav') renderFavs();
   if(tab==='search') setTimeout(()=>document.getElementById('spi').focus(),80);
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function loadTab(t) {
-  if(t==='home')   loadHome();
-  if(t==='pastry') loadCat(['Dessert'],'pg','pcount');
-  if(t==='meat')   loadCat(['Beef','Chicken','Seafood'],'mg','mcount');
-  if(t==='veggie') loadCat(['Vegetarian','Vegan'],'vg','vcount');
-  if(t==='world')  loadArea('French');
+
+function loadTab(tab){
+  if(tab==='home')   {loadHome();return;}
+  if(tab==='world')  {loadArea('French');return;}
+  if(CATS[tab])      {loadSingleCat(tab);}
 }
-function togM() {
+
+function togM(){
   const d=document.getElementById('mdd'),ic=document.getElementById('hico');
   const o=d.classList.toggle('open');
-  ic.innerHTML=o?'<path d="M18 6L6 18M6 6l12 12"/>'
-    :'<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
+  ic.innerHTML=o?'<path d="M18 6L6 18M6 6l12 12"/>':
+    '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
 }
-function cM() {
+function cM(){
   document.getElementById('mdd').classList.remove('open');
   document.getElementById('hico').innerHTML='<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
 }
 
 /* ══════════════════════════════════════════════════════
-   TRANSLATION ENGINE
-   Uses MyMemory (free, CORS *, no key, 5000 chars/day).
-   Translates one string at a time — simple and reliable.
-   Results cached in TC{} so each recipe is only translated once.
-══════════════════════════════════════════════════════ */
-async function translateOne(text) {
-  if(!text || !text.trim()) return text;
-  const url = 'https://api.mymemory.translated.net/get'
-    + '?q=' + encodeURIComponent(text.slice(0,500))
-    + '&langpair=en|fr'
-    + '&de=recipebook@example.com'; // optional email = higher quota
-  try {
-    const r = await fetch(url, { mode:'cors' });
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    const d = await r.json();
-    if(d.responseStatus===200 && d.responseData?.translatedText) {
-      return d.responseData.translatedText;
-    }
-  } catch(e) {}
-  return text; // fallback: original
-}
-
-async function translateMeal(meal) {
-  if(lang==='en') return null;
-  if(TC[meal.idMeal]) return TC[meal.idMeal];
-
-  const ings = Array.from({length:20},(_,i)=>({
-    ing:meal[`strIngredient${i+1}`], mea:meal[`strMeasure${i+1}`]
-  })).filter(x=>x.ing?.trim());
-
-  // Translate name and all ingredient names in parallel
-  const instrSlice = (meal.strInstructions||'').slice(0,800);
-
-  const [tName, tInstr, ...tIngNames] = await Promise.all([
-    translateOne(meal.strMeal),
-    translateOne(instrSlice),
-    ...ings.map(x => translateOne(x.ing))
-  ]);
-
-  const result = {
-    name: tName,
-    instructions: tInstr,
-    ingredients: ings.map((x,i) => ({ ing: tIngNames[i]||x.ing, mea: x.mea }))
-  };
-
-  TC[meal.idMeal] = result;
-  return result;
-}
-
-/* ══════════════════════════════════════════════════════
-   MEAL DB API
+   MealDB API
 ══════════════════════════════════════════════════════ */
 const MDB='https://www.themealdb.com/api/json/v1/1';
-async function apiFetch(path) {
-  try {
-    const r=await fetch(MDB+path,{mode:'cors'});
-    if(r.ok){const d=await r.json();if(d&&d.meals!==undefined)return d;}
-  } catch(e){}
-  try {
+async function apiFetch(path){
+  try{const r=await fetch(MDB+path,{mode:'cors'});if(r.ok){const d=await r.json();if(d&&d.meals!==undefined)return d;}}catch(e){}
+  try{
     const r2=await fetch('https://corsproxy.io/?'+encodeURIComponent(MDB+path));
-    if(r2.ok){
-      const d2=await r2.json();
-      if(d2&&d2.contents) return JSON.parse(d2.contents);
-      if(d2&&d2.meals!==undefined) return d2;
-    }
-  } catch(e){}
-  return {meals:null};
+    if(r2.ok){const d2=await r2.json();if(d2&&d2.contents)return JSON.parse(d2.contents);if(d2&&d2.meals!==undefined)return d2;}
+  }catch(e){}
+  return{meals:null};
 }
-const gCat  = c  => apiFetch(`/filter.php?c=${c}`).then(d=>d.meals||[]);
-const gArea = a  => apiFetch(`/filter.php?a=${a}`).then(d=>d.meals||[]);
-const gMeal = id => apiFetch(`/lookup.php?i=${id}`).then(d=>(d.meals||[])[0]||null);
-const gRnd  = ()  => apiFetch(`/random.php`).then(d=>(d.meals||[])[0]||null);
-const gSrch = q  => apiFetch(`/search.php?s=${encodeURIComponent(q)}`).then(d=>d.meals||[]);
+const gCat =c=>apiFetch(`/filter.php?c=${c}`).then(d=>d.meals||[]);
+const gArea=a=>apiFetch(`/filter.php?a=${a}`).then(d=>d.meals||[]);
+const gMeal=id=>apiFetch(`/lookup.php?i=${id}`).then(d=>(d.meals||[])[0]||null);
+const gRnd =()=>apiFetch(`/random.php`).then(d=>(d.meals||[])[0]||null);
+const gSrch=q=>apiFetch(`/search.php?s=${encodeURIComponent(q)}`).then(d=>d.meals||[]);
 
 /* ══════════════════════════════════════════════════════
-   SKELETONS / UTILS
+   TRANSLATION — MyMemory (free, CORS *, no key needed)
+══════════════════════════════════════════════════════ */
+async function tr1(text){
+  if(!text||!text.trim()) return text;
+  const url='https://api.mymemory.translated.net/get?q='+encodeURIComponent(text.slice(0,500))+'&langpair=en|fr&de=recipebook@example.com';
+  try{
+    const r=await fetch(url,{mode:'cors'});
+    if(!r.ok) throw 0;
+    const d=await r.json();
+    if(d.responseStatus===200&&d.responseData?.translatedText) return d.responseData.translatedText;
+  }catch(e){}
+  return text;
+}
+async function translateMeal(m){
+  if(lang==='en') return null;
+  if(TC[m.idMeal]) return TC[m.idMeal];
+  const ings=Array.from({length:20},(_,i)=>({ing:m[`strIngredient${i+1}`],mea:m[`strMeasure${i+1}`]})).filter(x=>x.ing?.trim());
+  const [tName,tInstr,...tIngNames]=await Promise.all([
+    tr1(m.strMeal),
+    tr1((m.strInstructions||'').slice(0,800)),
+    ...ings.map(x=>tr1(x.ing))
+  ]);
+  const res={name:tName,instructions:tInstr,ingredients:ings.map((x,i)=>({ing:tIngNames[i]||x.ing,mea:x.mea}))};
+  TC[m.idMeal]=res;
+  return res;
+}
+
+/* ══════════════════════════════════════════════════════
+   HELPERS
 ══════════════════════════════════════════════════════ */
 function sks(n){return Array(n).fill('<div class="skc"><div class="ski"></div><div class="skb"><div class="skl"></div><div class="skl w3"></div></div></div>').join('');}
-function saveFavs(){try{localStorage.setItem('rb6',JSON.stringify(favs));}catch(e){}}
+function saveFavs(){try{localStorage.setItem('rb7',JSON.stringify(favs));}catch(e){}}
 function isFav(id){return favs.includes(String(id));}
 function hsvg(id){
   const a=TH[cur]?.acc||'#f5c842',ac=isFav(id);
@@ -533,7 +1438,7 @@ function tFav(e,id){
   e.stopPropagation();
   const sid=String(id);
   favs=isFav(sid)?favs.filter(x=>x!==sid):[...favs,sid];
-  saveFavs(); updB();
+  saveFavs();updB();
   const a=TH[cur]?.acc||'#f5c842',ac=isFav(sid);
   document.querySelectorAll(`[data-hid="${sid}"]`).forEach(b=>{
     const s=b.querySelector('svg');
@@ -551,55 +1456,71 @@ function card(m){
 }
 
 /* ══════════════════════════════════════════════════════
-   PAGE LOADERS
+   HOME
 ══════════════════════════════════════════════════════ */
-async function loadHome() {
+async function loadHome(){
   document.getElementById('fw').innerHTML='<div class="feat-sk"></div>';
   document.getElementById('hr').innerHTML=`
     <div class="slabel" id="hlbl-d">${u('lbl_d')}</div><div class="bento" id="hd">${sks(4)}</div>
     <div class="slabel" style="margin-top:22px" id="hlbl-m">${u('lbl_m')}</div><div class="bento" id="hm">${sks(4)}</div>
-    <div class="slabel" style="margin-top:22px" id="hlbl-v">${u('lbl_v')}</div><div class="bento" id="hv">${sks(4)}</div>`;
-  const[feat,des,bef,veg]=await Promise.all([gRnd(),gCat('Dessert'),gCat('Beef'),gCat('Vegetarian')]);
+    <div class="slabel" style="margin-top:22px" id="hlbl-v">${u('lbl_v')}</div><div class="bento" id="hv">${sks(4)}</div>
+    <div class="slabel" style="margin-top:22px" id="hlbl-p">${u('lbl_p')}</div><div class="bento" id="hp">${sks(4)}</div>`;
+  const[feat,des,bef,veg,pas]=await Promise.all([gRnd(),gCat('Dessert'),gCat('Beef'),gCat('Vegetarian'),gCat('Pasta')]);
   if(feat){
     const n=feat.strMeal.replace(/"/g,'&quot;');
     document.getElementById('fw').innerHTML=`<div class="feat" onclick="openM('${feat.idMeal}')"><img src="${feat.strMealThumb}" alt="${n}" onerror="this.style.opacity='.4'"/><div class="fov"></div><div class="fbody"><div class="ftag">${feat.strCategory||'Recette'}</div><div class="ftitle">${feat.strMeal}</div>${feat.strArea?`<div class="farea">${feat.strArea}</div>`:''}</div>${hbtn(feat.idMeal)}</div>`;
   } else {
-    document.getElementById('fw').innerHTML='<p style="color:var(--mut);font-size:13px;margin-bottom:16px">⚠️ Impossible de charger la recette vedette. Vérifiez votre connexion.</p>';
+    document.getElementById('fw').innerHTML='<p style="color:var(--mut);font-size:13px;margin-bottom:16px">⚠️ Impossible de charger la recette vedette.</p>';
   }
   const sh=a=>a.sort(()=>Math.random()-.5);
   document.getElementById('hd').innerHTML=sh(des).slice(0,4).map(card).join('')||'';
   document.getElementById('hm').innerHTML=sh(bef).slice(0,4).map(card).join('')||'';
   document.getElementById('hv').innerHTML=sh(veg).slice(0,4).map(card).join('')||'';
+  document.getElementById('hp').innerHTML=sh(pas).slice(0,4).map(card).join('')||'';
 }
 
-async function loadCat(cats,gid,sid) {
-  document.getElementById(gid).innerHTML=sks(8);
+/* ══════════════════════════════════════════════════════
+   SINGLE CATEGORY
+══════════════════════════════════════════════════════ */
+async function loadSingleCat(tab){
+  const cat=CATS[tab];if(!cat) return;
+  const gid=`c-${tab}`,sid=`c-${tab}-sub`;
+  document.getElementById(gid).innerHTML=sks(10);
   document.getElementById(sid).innerHTML=u('loading');
-  const r=await Promise.all(cats.map(gCat));
-  const all=[...new Map(r.flat().map(m=>[m.idMeal,m])).values()].sort(()=>Math.random()-.5);
-  document.getElementById(sid).innerHTML=`<b>${all.length}</b> ${u('recipes')}`;
-  document.getElementById(gid).innerHTML=all.length?all.map(card).join(''):'<p style="color:var(--mut);font-size:13px">Indisponible.</p>';
+  const meals=await gCat(cat.mdb);
+  meals.sort(()=>Math.random()-.5);
+  document.getElementById(sid).innerHTML=`<b>${meals.length}</b> ${u('recipes')}`;
+  document.getElementById(gid).innerHTML=meals.length?meals.map(card).join(''):'<p style="color:var(--mut);font-size:13px">Aucune recette.</p>';
 }
 
-async function loadArea(area) {
-  document.getElementById('wg').innerHTML=sks(8);
-  document.getElementById('wcount').innerHTML=u('loading');
+/* ══════════════════════════════════════════════════════
+   WORLD
+══════════════════════════════════════════════════════ */
+async function loadArea(area){
+  document.getElementById('wg').innerHTML=sks(10);
+  document.getElementById('world-sub').innerHTML=u('loading');
   const meals=await gArea(area);
-  document.getElementById('wcount').innerHTML=`<b>${meals.length}</b> ${u('recipes')} · ${area}`;
-  document.getElementById('wg').innerHTML=meals.length?meals.map(card).join(''):'<p style="color:var(--mut);font-size:13px">Indisponible.</p>';
+  document.getElementById('world-sub').innerHTML=`<b>${meals.length}</b> ${u('recipes')} · ${area}`;
+  document.getElementById('wg').innerHTML=meals.length?meals.map(card).join(''):'<p style="color:var(--mut);font-size:13px">Aucune recette.</p>';
 }
 
-async function renderFavs() {
+/* ══════════════════════════════════════════════════════
+   FAVORITES
+══════════════════════════════════════════════════════ */
+async function renderFavs(){
   const n=favs.length;
   document.getElementById('fcount').innerHTML=`<b>${n}</b> ${u('saved')}`;
   if(!n){document.getElementById('fvw').innerHTML=`<div class="empty"><span class="eico">🤍</span><p>${u('no_fav')}</p></div>`;return;}
   document.getElementById('fvw').innerHTML=`<div class="bento">${sks(n)}</div>`;
   const meals=await Promise.all(favs.map(id=>favM[id]?Promise.resolve(favM[id]):gMeal(id)));
-  const v=meals.filter(Boolean); v.forEach(m=>{favM[m.idMeal]=m;});
+  const v=meals.filter(Boolean);v.forEach(m=>{favM[m.idMeal]=m;});
   document.getElementById('fvw').innerHTML=`<div class="bento">${v.map(card).join('')}</div>`;
 }
 
-function onSrch(val) {
+/* ══════════════════════════════════════════════════════
+   SEARCH
+══════════════════════════════════════════════════════ */
+function onSrch(val){
   ['ds','ms','spi'].forEach(id=>{const el=document.getElementById(id);if(el&&el!==document.activeElement)el.value=val;});
   const sg=document.getElementById('sg'),se=document.getElementById('se');
   clearTimeout(sT);
@@ -615,55 +1536,42 @@ function onSrch(val) {
 /* ══════════════════════════════════════════════════════
    MODAL
 ══════════════════════════════════════════════════════ */
-let modalOpen = false;
-
-async function openM(id) {
+async function openM(id){
   const back=document.getElementById('mbk'),mi=document.getElementById('mi');
-  back.classList.add('open'); document.body.style.overflow='hidden'; modalOpen=true;
+  back.classList.add('open');document.body.style.overflow='hidden';mOpen=true;
   mi.innerHTML='<div class="mskw"><div class="sk" style="height:220px;border-radius:14px"></div><div class="sk" style="height:24px;width:60%"></div><div class="sk" style="height:12px"></div><div class="sk" style="height:12px;width:80%"></div><div class="sk" style="height:12px;width:65%"></div></div>';
-
   const m=await gMeal(id);
   if(!m){mi.innerHTML='<p style="padding:40px;color:var(--mut);text-align:center">Erreur de chargement.</p>';return;}
   if(isFav(id)) favM[id]=m;
-
   const ings=Array.from({length:20},(_,i)=>({ing:m[`strIngredient${i+1}`],mea:m[`strMeasure${i+1}`]})).filter(x=>x.ing?.trim());
   const acc=TH[cur]?.acc||'#f5c842';
-
-  if(lang==='en') {
-    // English: show original immediately, no translation needed
-    buildModal(mi, m, ings, acc, null, null);
-  } else {
-    // French: show original with "translating..." badge, then update with translation
-    buildModal(mi, m, ings, acc, null, 'load');
-    const trad = await translateMeal(m);
-    if(modalOpen) {
-      buildModal(mi, m, ings, acc, trad, trad ? 'done' : 'err');
-    }
+  if(lang==='en'){buildM(mi,m,ings,acc,null,null);}
+  else{
+    buildM(mi,m,ings,acc,null,'load');
+    const trad=await translateMeal(m);
+    if(mOpen) buildM(mi,m,ings,acc,trad,trad?'done':'err');
   }
 }
 
-function buildModal(mi, m, ings, acc, trad, state) {
-  const name  = trad?.name  || m.strMeal;
-  const instr = trad?.instructions || m.strInstructions || '';
-  const tIngs = trad?.ingredients || null;
-
-  const ingHTML = ings.map((x,i)=>{
-    const ing = tIngs?.[i]?.ing || x.ing;
-    const mea = (x.mea||'').trim();
+function buildM(mi,m,ings,acc,trad,state){
+  const name=trad?.name||m.strMeal;
+  const instr=trad?.instructions||m.strInstructions||'';
+  const tI=trad?.ingredients||null;
+  const ingHTML=ings.map((x,i)=>{
+    const ing=tI?.[i]?.ing||x.ing;
+    const mea=(x.mea||'').trim();
     return`<div class="ii"><span class="idot" style="background:${acc}"></span><span><span class="imea">${mea}</span>${ing}</span></div>`;
   }).join('');
-
   let pill='';
   if(state==='load') pill=`<div class="tpill tload"><span class="tspin"></span>${u('tload')}</div>`;
   else if(state==='done') pill=`<div class="tpill tdone">${u('tdone')}</div>`;
   else if(state==='err')  pill=`<div class="tpill terr">ℹ ${u('terr')}</div>`;
-
   mi.innerHTML=`
     <div class="miw">
       <img src="${m.strMealThumb}" alt="${name.replace(/"/g,'&quot;')}" onerror="this.style.opacity='.4'"/>
       <div class="mgrd"></div>
       <button class="mcls" onclick="closeM()">✕</button>
-      <button class="hbtn" onclick="tFav(event,'${m.idMeal}')" data-hid="${m.idMeal}" aria-label="Favori" style="top:10px;right:44px">${hsvg(m.idMeal)}</button>
+      <button class="hbtn" onclick="tFav(event,'${m.idMeal}')" data-hid="${m.idMeal}" style="top:10px;right:44px">${hsvg(m.idMeal)}</button>
     </div>
     <div class="mcont">
       ${pill}
@@ -681,14 +1589,14 @@ function buildModal(mi, m, ings, acc, trad, state) {
     </div>`;
 }
 
-function closeM(){document.getElementById('mbk').classList.remove('open');document.body.style.overflow='';modalOpen=false;}
+function closeM(){document.getElementById('mbk').classList.remove('open');document.body.style.overflow='';mOpen=false;}
 function mBd(e){if(e.target===document.getElementById('mbk')||e.target.classList.contains('mov'))closeM();}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
 
 /* ══════════════════════════════════════════════════════
    INIT
 ══════════════════════════════════════════════════════ */
-updB(); setTH('home'); applyUI(); loadHome(); loaded.home=true;
+updB();setTH('home');applyUI();loadHome();loaded.home=true;
 </script>
 </body>
 </html>
